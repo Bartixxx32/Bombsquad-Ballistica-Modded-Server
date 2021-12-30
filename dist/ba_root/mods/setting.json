@@ -5,15 +5,15 @@
   	  "BrodcastCommand": true
     },
     "textonmap": {
-        "top watermark": "Welcome to server \nip 192.168.0.1",
-        "bottom left watermark": "Owner : <owner-name> \nEditor : <bablu>\nScripts : BCS1.3.3",
+        "top watermark": "Welcome to Bartixxx Modded Server",
+        "bottom left watermark": "Owner : Bartixxx",
         "center highlights":{
             "color":[1,0,0],
             "randomColor":true,
             "msg":[
-                "message 1",
-                "message 2",
-                "message 3"
+                "Hey",
+                "Have",
+                "Fun"
                 ]
         } 
     },
@@ -60,11 +60,11 @@
             "Fire Bombs": 3, "Fly Bombs": 3}
     },
     "discordbot":{
-        "enable":false,
-        "token":"<secret-token-here>",
+        "enable":true,
+        "token":"OTI2MjQ4NjU4Mjc2NTk3ODIw.Yc46SQ._i-JZoFk47n4Y79KETBf_1bU3g4",
         "liveChat":true,
-        "liveStatsChannelID":925440043672285205,
-        "logsChannelID":925440079843958834
+        "liveStatsChannelID":926248880998330479,
+        "logsChannelID":926248899021266984
     },
     "sameCharacterForTeam":false,
     "newResultBoard":true,
@@ -78,7 +78,7 @@
     "WarnCooldownMinutes":30,
     "warnMsg":"WARNING !!!",
     "afterWarnKickMsg":"Enough warnings, Goodbye have a nice day :)",
-    "firstTimeJoinMsg":"Welcome to the server,we r saving all your account details and chats",
+    "firstTimeJoinMsg":"Welcome to the server!",
     "regularWelcomeMsg":"Welcome Back",
     "enabletags": true,
     "enablehptag": true,
