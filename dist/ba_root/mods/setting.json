@@ -60,7 +60,7 @@
             "Fire Bombs": 3, "Fly Bombs": 3}
     },
     "discordbot":{
-        "enable":true,
+        "enable":false,
         "token":"OTI2MjQ4NjU4Mjc2NTk3ODIw.Yc46SQ._i-JZoFk47n4Y79KETBf_1bU3g4",
         "liveChat":true,
         "liveStatsChannelID":926248880998330479,
