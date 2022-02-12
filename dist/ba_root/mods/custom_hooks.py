@@ -20,9 +20,13 @@ from tools import TeamBalancer
 from bastd.activity.coopscore import CoopScoreScreen
 from ba import _hooks
 from tools import Logger
+
+
 from playersData import pdata
+
+from tools import afk_check
 # from bastd.activity.multiteamvictory import 
-# from tools import fireflies
+from tools import fireflies
 settings = setting.get_settings_data()
 
 def filter_chat_message(msg, client_id):
@@ -34,6 +38,8 @@ def on_app_launch():
     bootstraping()
     servercheck.checkserver().start()
     ServerUpdate.check()
+    if settings["afk_remover"]['enable']:
+        afk_check.checkIdle().start()
 
 
 
@@ -76,6 +82,7 @@ def bootstraping():
         discordbot.liveChat=settings["discordbot"]["liveChat"]
         discordbot.BsDataThread()
         discordbot.init()
+    importgames()
 
         
 
@@ -123,8 +130,8 @@ def night_mode():
 
             activity.globalsnode.tint = (0.5, 0.7, 1.0)
 
-            # if settings['autoNightMode']['fireflies']:
-            #     fireflies.factory()
+            if settings['autoNightMode']['fireflies']:
+                fireflies.factory(settings['autoNightMode']["fireflies_random_color"])
 
 
 
@@ -155,3 +162,21 @@ _hooks.on_kicked=on_kicked
 
 def on_kick_vote_end():
     Logger.log("Kick vote End")
+
+
+
+import os
+import importlib
+def importgames():
+    games=os.listdir("ba_root/mods/games")
+    for game in games:
+        if game.endswith(".py") or game.endswith(".so"):
+            importlib.import_module("games."+game.replace(".so","").replace(".py",""))
+    maps=os.listdir("ba_root/mods/maps")
+    for map in maps:
+        if map.endswith(".py") or map.endswith(".so"):
+            importlib.import_module("maps."+map.replace(".so","").replace(".py",""))
+
+
+
+    

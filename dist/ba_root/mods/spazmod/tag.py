@@ -9,6 +9,7 @@ def addtag(node,player):
     roles=pdata.get_roles()
     p_roles=pdata.get_player_roles(account_id)
     tag=None
+    col=(0.5,0.5,1) # default color for custom tags
     if account_id in customtag:
         tag=customtag[account_id]
     elif p_roles !=[]:
@@ -16,9 +17,10 @@ def addtag(node,player):
 
             if role in p_roles:
                 tag=roles[role]['tag']
+                col=roles[role]['tagcolor']
                 break;
     if tag:
-        Tag(node,tag)
+        Tag(node,tag,col)
 
 from stats import mystats
 def addrank(node,player):
@@ -37,7 +39,7 @@ def addhp(node):
     if hp: t = ba.Timer(100,ba.Call(showHP),repeat = True, timetype=ba.TimeType.SIM, timeformat=ba.TimeFormat.MILLISECONDS)
 
 class Tag(object):
-	def __init__(self,owner=None,tag="somthing"):
+	def __init__(self,owner=None,tag="somthing",col=(1,1,1)):
 		self.node=owner
 		mnode = ba.newnode('math',
                                owner=self.node,
@@ -72,7 +74,7 @@ class Tag(object):
                                               'in_world': True,
                                               'shadow': 1.0,
                                               'flatness': 1.0,
-                                              'color': (1,0.6,0.7),
+                                              'color': tuple(col),
                                               'scale': 0.01,
                                               'h_align': 'center'
                                           })
