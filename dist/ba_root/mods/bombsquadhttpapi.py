@@ -16,10 +16,12 @@ stats = [{}, [], {"cpu": 0, "ram": 0}]
 
 
 class livestats(object):
+
     def __init__(self):
-        self.timer = ba.Timer(
-            5, ba.Call(self.getinfo), timetype=ba.TimeType.REAL, repeat=True
-        )
+        self.timer = ba.Timer(5,
+                              ba.Call(self.getinfo),
+                              timetype=ba.TimeType.REAL,
+                              repeat=True)
 
     def getinfo(self):
         liveplayer = {}
@@ -32,7 +34,10 @@ class livestats(object):
                     "clientid": i["client_id"],
                 }
             except:
-                liveplayer[id] - {"name": "<in-lobby>", "clientid": i["client_id"]}
+                liveplayer[id] - {
+                    "name": "<in-lobby>",
+                    "clientid": i["client_id"]
+                }
         stats[0] = liveplayer
         stats[1] = _ba.get_chat_messages()
         # stats[2]["cpu"]= p.cpu_percent()
@@ -63,6 +68,7 @@ def livestat():
 
 
 class HeySmoothy(ba.Plugin):
+
     def __init__(self):
         flask = _thread.start_new_thread(app.run, ("0,0,0,0", 80, False))
 

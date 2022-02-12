@@ -72,7 +72,7 @@ def addWarn(pb_id, client_id):
             )
             Logger.log(pb_id + " | kicked for chat spam")
             _ba.disconnect_client(client_id)
-            _thread.start_new_thread(servercheck.reportSpam, (pb_id,))
+            _thread.start_new_thread(servercheck.reportSpam, (pb_id, ))
 
         else:
             _ba.screenmessage(

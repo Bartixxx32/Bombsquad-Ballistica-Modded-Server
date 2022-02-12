@@ -13,21 +13,22 @@ INLOBBY_TIME = settings["afk_remover"]["lobby_idle_time_in_secs"]
 
 
 class checkIdle(object):
+
     def start(self):
         self.t1 = ba.timer(2, ba.Call(self.check), repeat=True)
         self.lobbies = {}
 
     def check(self):
-        current = ba.time(ba.TimeType.REAL, timeformat=ba.TimeFormat.MILLISECONDS)
+        current = ba.time(ba.TimeType.REAL,
+                          timeformat=ba.TimeFormat.MILLISECONDS)
         for player in _ba.get_foreground_host_session().sessionplayers:
             last_input = int(player.inputdevice.get_last_input_time())
             afk_time = int((current - last_input) / 1000)
             if afk_time in range(INGAME_TIME, INGAME_TIME + 20):
                 self.warn_player(
                     player.get_account_id(),
-                    "Press any button within "
-                    + str(INGAME_TIME + 20 - afk_time)
-                    + " secs",
+                    "Press any button within " +
+                    str(INGAME_TIME + 20 - afk_time) + " secs",
                 )
             if afk_time > INGAME_TIME + 20:
                 player.remove_from_game()
@@ -39,13 +40,11 @@ class checkIdle(object):
                     if player["client_id"] not in self.lobbies:
                         self.lobbies[player["client_id"]] = current
                     lobby_afk = int(
-                        (current - self.lobbies[player["client_id"]]) / 1000
-                    )
+                        (current - self.lobbies[player["client_id"]]) / 1000)
                     if lobby_afk in range(INLOBBY_TIME, INLOBBY_TIME + 10):
                         _ba.screenmessage(
-                            "Join game within "
-                            + str(INLOBBY_TIME + 10 - lobby_afk)
-                            + " secs",
+                            "Join game within " +
+                            str(INLOBBY_TIME + 10 - lobby_afk) + " secs",
                             color=(1, 0, 0),
                             transient=True,
                             clients=[player["client_id"]],
@@ -61,6 +60,7 @@ class checkIdle(object):
     def warn_player(self, pbid, msg):
         for player in _ba.get_game_roster():
             if player["account_id"] == pbid:
-                _ba.screenmessage(
-                    msg, color=(1, 0, 0), transient=True, clients=[player["client_id"]]
-                )
+                _ba.screenmessage(msg,
+                                  color=(1, 0, 0),
+                                  transient=True,
+                                  clients=[player["client_id"]])

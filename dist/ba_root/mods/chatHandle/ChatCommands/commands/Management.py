@@ -190,7 +190,8 @@ def ban(arguments):
         ac_id = ""
         for ros in _ba.get_game_roster():
             if ros["client_id"] == cl_id:
-                _thread.start_new_thread(pdata.ban_player, (ros["account_id"],))
+                _thread.start_new_thread(pdata.ban_player,
+                                         (ros["account_id"], ))
 
                 ac_id = ros["account_id"]
         if ac_id in serverdata.clients:
@@ -214,7 +215,7 @@ def mute(arguments):
         ac_id = ""
         for ros in _ba.get_game_roster():
             if ros["client_id"] == cl_id:
-                _thread.start_new_thread(pdata.mute, (ros["account_id"],))
+                _thread.start_new_thread(pdata.mute, (ros["account_id"], ))
 
                 ac_id = ros["account_id"]
         if ac_id in serverdata.clients:
@@ -355,7 +356,8 @@ def remove_role_from_player(arguments):
         session = _ba.get_foreground_host_session()
         for i in session.sessionplayers:
             if i.inputdevice.client_id == int(arguments[1]):
-                roles = pdata.remove_player_role(arguments[0], i.get_account_id())
+                roles = pdata.remove_player_role(arguments[0],
+                                                 i.get_account_id())
 
     except:
         return

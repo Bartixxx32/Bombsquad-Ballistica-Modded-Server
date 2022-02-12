@@ -11,8 +11,7 @@ def factory(random_col: bool):
     if not isinstance(act, GameActivity):
         return
     m = _ba.get_foreground_host_activity().map.get_def_bound_box(
-        "area_of_interest_bounds"
-    )
+        "area_of_interest_bounds")
     part1 = list(m)
     part2 = list(m)
     half = (m[0] + m[3]) / 2
@@ -42,6 +41,7 @@ def create_fly(points, random_col):
 
 
 class flies(ba.Actor):
+
     def __init__(self, m, random_col):
         super().__init__()
         shared = SharedObjects.get()
@@ -55,12 +55,10 @@ class flies(ba.Actor):
         else:
             col = (0.9, 0.7, 0.0)
         self.mat = ba.Material()
-        self.mat.add_actions(
-            actions=(
-                ("modify_part_collision", "collide", False),
-                ("modify_part_collision", "physical", False),
-            )
-        )
+        self.mat.add_actions(actions=(
+            ("modify_part_collision", "collide", False),
+            ("modify_part_collision", "physical", False),
+        ))
 
         self.node = ba.newnode(
             "prop",
@@ -76,10 +74,19 @@ class flies(ba.Actor):
                 "materials": [shared.object_material, self.mat],
             },
         )
-        ba.animate(
-            self.node, "model_scale", {0: 0, 1: 0.19, 5: 0.10, 10: 0.0}, loop=True
-        )
-        ba.animate_array(self.node, "position", 3, self.generateKeys(m), loop=True)
+        ba.animate(self.node,
+                   "model_scale", {
+                       0: 0,
+                       1: 0.19,
+                       5: 0.10,
+                       10: 0.0
+                   },
+                   loop=True)
+        ba.animate_array(self.node,
+                         "position",
+                         3,
+                         self.generateKeys(m),
+                         loop=True)
 
         self.light = ba.newnode(
             "light",
@@ -94,7 +101,13 @@ class flies(ba.Actor):
         ba.animate(
             self.light,
             "radius",
-            {0: 0.0, 20: 0.4, 70: 0.1, 100: 0.3, 150: 0},
+            {
+                0: 0.0,
+                20: 0.4,
+                70: 0.1,
+                100: 0.3,
+                150: 0
+            },
             loop=True,
         )
         self.node.connectattr("position", self.light, "position")

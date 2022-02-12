@@ -61,25 +61,33 @@ def Command(msg, clientid):
             Management.ExcelCommand(command, arguments, clientid, accountid)
             _ba.screenmessage("Executed", transient=True, clients=[clientid])
         else:
-            _ba.screenmessage("access denied", transient=True, clients=[clientid])
+            _ba.screenmessage("access denied",
+                              transient=True,
+                              clients=[clientid])
 
     elif command_type(command) == "Fun":
         if check_permissions(accountid, command):
             Fun.ExcelCommand(command, arguments, clientid, accountid)
             _ba.screenmessage("Executed", transient=True, clients=[clientid])
         else:
-            _ba.screenmessage("access denied", transient=True, clients=[clientid])
+            _ba.screenmessage("access denied",
+                              transient=True,
+                              clients=[clientid])
 
     elif command_type(command) == "Cheats":
         if check_permissions(accountid, command):
             Cheats.ExcelCommand(command, arguments, clientid, accountid)
             _ba.screenmessage("Executed", transient=True, clients=[clientid])
         else:
-            _ba.screenmessage("access denied", transient=True, clients=[clientid])
+            _ba.screenmessage("access denied",
+                              transient=True,
+                              clients=[clientid])
 
     if accountid in serverdata.clients:
         if serverdata.clients[accountid]["isMuted"]:
-            _ba.screenmessage("You are on mute", transient=True, clients=[clientid])
+            _ba.screenmessage("You are on mute",
+                              transient=True,
+                              clients=[clientid])
             return None
     if serverdata.muted:
         return None

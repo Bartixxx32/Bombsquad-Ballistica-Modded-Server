@@ -20,6 +20,7 @@ if TYPE_CHECKING:
 
 
 class MikiWavedashTest(ba.Plugin):
+
     class FootConnectMessage:
         """Spaz started touching the ground"""
 
@@ -30,9 +31,8 @@ class MikiWavedashTest(ba.Plugin):
         if not self.node:
             return
 
-        isMoving = (
-            abs(self.node.move_up_down) >= 0.5 or abs(self.node.move_left_right) >= 0.5
-        )
+        isMoving = (abs(self.node.move_up_down) >= 0.5
+                    or abs(self.node.move_left_right) >= 0.5)
 
         if self._dead or not self.grounded or not isMoving:
             return
@@ -59,7 +59,8 @@ class MikiWavedashTest(ba.Plugin):
             if turn_power < 0.2:
                 return
 
-            boost_power = math.sqrt(math.pow(vel[0], 2) + math.pow(vel[1], 2)) * 1.2
+            boost_power = math.sqrt(math.pow(vel[0], 2) +
+                                    math.pow(vel[1], 2)) * 1.2
             boost_power = min(pow(boost_power, 4), 160)
             # print(boost_power * turn_power)
 
@@ -96,6 +97,7 @@ class MikiWavedashTest(ba.Plugin):
                 )
 
     def new_spaz_init(func):
+
         def wrapper(*args, **kwargs):
 
             func(*args, **kwargs)
@@ -107,9 +109,11 @@ class MikiWavedashTest(ba.Plugin):
 
         return wrapper
 
-    bastd.actor.spaz.Spaz.__init__ = new_spaz_init(bastd.actor.spaz.Spaz.__init__)
+    bastd.actor.spaz.Spaz.__init__ = new_spaz_init(
+        bastd.actor.spaz.Spaz.__init__)
 
     def new_factory(func):
+
         def wrapper(*args, **kwargs):
             func(*args, **kwargs)
 
@@ -137,10 +141,10 @@ class MikiWavedashTest(ba.Plugin):
         return wrapper
 
     bastd.actor.spazfactory.SpazFactory.__init__ = new_factory(
-        bastd.actor.spazfactory.SpazFactory.__init__
-    )
+        bastd.actor.spazfactory.SpazFactory.__init__)
 
     def new_handlemessage(func):
+
         def wrapper(*args, **kwargs):
             if args[1] == MikiWavedashTest.FootConnectMessage:
                 args[0].grounded += 1
@@ -153,10 +157,10 @@ class MikiWavedashTest(ba.Plugin):
         return wrapper
 
     bastd.actor.spaz.Spaz.handlemessage = new_handlemessage(
-        bastd.actor.spaz.Spaz.handlemessage
-    )
+        bastd.actor.spaz.Spaz.handlemessage)
 
     def new_on_run(func):
+
         def wrapper(*args, **kwargs):
             if args[0]._last_run_value < args[1] and args[1] > 0.8:
                 MikiWavedashTest.wavedash(args[0])

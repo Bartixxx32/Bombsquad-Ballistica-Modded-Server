@@ -87,11 +87,9 @@ def get_all_stats():
                 stats = jsonData["stats"]
 
                 seasonStartDate = datetime.datetime.strptime(
-                    jsonData["startDate"], "%d-%m-%Y"
-                )
-                if (datetime.datetime.now() - seasonStartDate).days >= our_settings[
-                    "statsResetAfterDays"
-                ]:
+                    jsonData["startDate"], "%d-%m-%Y")
+                if (datetime.datetime.now() - seasonStartDate
+                    ).days >= our_settings["statsResetAfterDays"]:
                     backupStatsFile()
                     seasonStartDate = datetime.datetime.now()
                     return statsDefault
@@ -104,8 +102,8 @@ def get_all_stats():
 
 def backupStatsFile():
     shutil.copy(
-        statsfile, statsfile.replace(".json", "") + str(seasonStartDate) + ".json"
-    )
+        statsfile,
+        statsfile.replace(".json", "") + str(seasonStartDate) + ".json")
 
 
 def dump_stats(s: dict):
@@ -137,10 +135,8 @@ def refreshStats():
     # f=open(htmlfile, 'w')
     # f.write(html_start)
 
-    entries = [
-        (a["scores"], a["kills"], a["deaths"], a["games"], a["name"], a["aid"])
-        for a in pStats.values()
-    ]
+    entries = [(a["scores"], a["kills"], a["deaths"], a["games"], a["name"],
+                a["aid"]) for a in pStats.values()]
     # this gives us a list of kills/names sorted high-to-low
     entries.sort(reverse=True)
     rank = 0
@@ -175,7 +171,8 @@ def refreshStats():
                 p_avg_score = "0"
             if damage_data and aid in damage_data:
                 dmg = damage_data[aid]
-                dmg = str(str(dmg).split(".")[0] + "." + str(dmg).split(".")[1][:3])
+                dmg = str(
+                    str(dmg).split(".")[0] + "." + str(dmg).split(".")[1][:3])
             else:
                 dmg = 0
 
@@ -252,6 +249,7 @@ def update(score_set):
 
 
 class UpdateThread(threading.Thread):
+
     def __init__(self, account_kills, account_deaths, account_scores):
         threading.Thread.__init__(self)
         self._account_kills = account_kills

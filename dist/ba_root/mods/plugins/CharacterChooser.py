@@ -56,9 +56,8 @@ from ba._lobby import ChangeMessage, PlayerReadyMessage
 from bastd.actor.spazappearance import *
 
 
-def __init__(
-    self, vpos: float, sessionplayer: _ba.SessionPlayer, lobby: "Lobby"
-) -> None:
+def __init__(self, vpos: float, sessionplayer: _ba.SessionPlayer,
+             lobby: "Lobby") -> None:
     self._deek_sound = _ba.getsound("deek")
     self._click_sound = _ba.getsound("click01")
     self._punchsound = _ba.getsound("punch01")
@@ -110,15 +109,16 @@ def __init__(
     # for the '_random' profile. Let's use their input_device id to seed
     # it. This will give a persistent character for them between games
     # and will distribute characters nicely if everyone is random.
-    self._random_color, self._random_highlight = get_player_profile_colors(None)
+    self._random_color, self._random_highlight = get_player_profile_colors(
+        None)
 
     # To calc our random character we pick a random one out of our
     # unlocked list and then locate that character's index in the full
     # list.
     char_index_offset = app.lobby_random_char_index_offset
-    self._random_character_index = (
-        sessionplayer.inputdevice.id + char_index_offset
-    ) % len(self._character_names)
+    self._random_character_index = (sessionplayer.inputdevice.id +
+                                    char_index_offset) % len(
+                                        self._character_names)
 
     # Attempt to set an initial profile based on what was used previously
     # for this input-device, etc.
@@ -153,9 +153,8 @@ def __init__(
     animate_array(self.icon, "scale", 2, {0: (0, 0), 0.1: (45, 45)})
 
     # Set our initial name to '<choosing player>' in case anyone asks.
-    self._sessionplayer.setname(
-        Lstr(resource="choosingPlayerText").evaluate(), real=False
-    )
+    self._sessionplayer.setname(Lstr(resource="choosingPlayerText").evaluate(),
+                                real=False)
 
     # Init these to our rando but they should get switched to the
     # selected profile (if any) right after.
@@ -190,11 +189,11 @@ def _set_ready(self, ready: bool) -> None:
 
     if ready == False:
         self._sessionplayer.assigninput(
-            InputType.LEFT_PRESS, Call(self.handlemessage, ChangeMessage("team", -1))
-        )
+            InputType.LEFT_PRESS,
+            Call(self.handlemessage, ChangeMessage("team", -1)))
         self._sessionplayer.assigninput(
-            InputType.RIGHT_PRESS, Call(self.handlemessage, ChangeMessage("team", 1))
-        )
+            InputType.RIGHT_PRESS,
+            Call(self.handlemessage, ChangeMessage("team", 1)))
         self._sessionplayer.assigninput(
             InputType.BOMB_PRESS,
             Call(self.handlemessage, ChangeMessage("character", 1)),
@@ -208,7 +207,8 @@ def _set_ready(self, ready: bool) -> None:
             Call(self.handlemessage, ChangeMessage("profileindex", 1)),
         )
         self._sessionplayer.assigninput(
-            (InputType.JUMP_PRESS, InputType.PICK_UP_PRESS, InputType.PUNCH_PRESS),
+            (InputType.JUMP_PRESS, InputType.PICK_UP_PRESS,
+             InputType.PUNCH_PRESS),
             Call(self.handlemessage, ChangeMessage("ready", 1)),
         )
         self._ready = False
@@ -236,12 +236,13 @@ def _set_ready(self, ready: bool) -> None:
             (InputType.DOWN_PRESS),
             Call(self.handlemessage, ChangeMessage("characterchooser", 1)),
         )
-        self._sessionplayer.assigninput(
-            (InputType.BOMB_PRESS), Call(self.handlemessage, ChangeMessage("ready", 0))
-        )
+        self._sessionplayer.assigninput((InputType.BOMB_PRESS),
+                                        Call(self.handlemessage,
+                                             ChangeMessage("ready", 0)))
 
         self._sessionplayer.assigninput(
-            (InputType.JUMP_PRESS, InputType.PICK_UP_PRESS, InputType.PUNCH_PRESS),
+            (InputType.JUMP_PRESS, InputType.PICK_UP_PRESS,
+             InputType.PUNCH_PRESS),
             Call(self.handlemessage, ChangeMessage("ready", 2)),
         )
 
@@ -249,7 +250,8 @@ def _set_ready(self, ready: bool) -> None:
         input_device = self._sessionplayer.inputdevice
         name = input_device.name
         unique_id = input_device.unique_identifier
-        device_profiles = _ba.app.config.setdefault("Default Player Profiles", {})
+        device_profiles = _ba.app.config.setdefault("Default Player Profiles",
+                                                    {})
 
         # Make an exception if we have no custom profiles and are set
         # to random; in that case we'll want to start picking up custom
@@ -266,9 +268,9 @@ def _set_ready(self, ready: bool) -> None:
         _ba.app.config.commit()
 
         # Set this player's short and full name.
-        self._sessionplayer.setname(
-            self._getname(), self._getname(full=True), real=True
-        )
+        self._sessionplayer.setname(self._getname(),
+                                    self._getname(full=True),
+                                    real=True)
         self._ready = True
         self._update_text()
     else:
@@ -295,8 +297,7 @@ def handlemessage(self, msg: Any) -> Any:
             _ba.playsound(self._click_sound)
             # update our index in our local list of characters
             self._character_index = (self._character_index + msg.value) % len(
-                self._character_names
-            )
+                self._character_names)
             self._update_text()
             self._update_icon()
 
@@ -304,9 +305,8 @@ def handlemessage(self, msg: Any) -> Any:
             sessionteams = self.lobby.sessionteams
             if len(sessionteams) > 1:
                 _ba.playsound(self._swish_sound)
-            self._selected_team_index = (self._selected_team_index + msg.value) % len(
-                sessionteams
-            )
+            self._selected_team_index = (self._selected_team_index +
+                                         msg.value) % len(sessionteams)
             self._update_text()
             self.update_position()
             self._update_icon()
@@ -323,8 +323,7 @@ def handlemessage(self, msg: Any) -> Any:
                 # and character based on that.
                 _ba.playsound(self._deek_sound)
                 self._profileindex = (self._profileindex + msg.value) % len(
-                    self._profilenames
-                )
+                    self._profilenames)
                 self.update_from_profile()
 
         elif msg.what == "character":
@@ -332,8 +331,7 @@ def handlemessage(self, msg: Any) -> Any:
             self.characterchooser = True
             # update our index in our local list of characters
             self._character_index = (self._character_index + msg.value) % len(
-                self._character_names
-            )
+                self._character_names)
             self._update_text()
             self._update_icon()
 
@@ -355,7 +353,8 @@ def _update_text(self) -> None:
                     ("${A}", text),
                     (
                         "${B}",
-                        Lstr(value="" + self._character_names[self._character_index]),
+                        Lstr(value="" +
+                             self._character_names[self._character_index]),
                     ),
                 ],
             )
@@ -372,21 +371,26 @@ def _update_text(self) -> None:
     can_switch_teams = len(self.lobby.sessionteams) > 1
 
     # Flash as we're coming in.
-    fin_color = _ba.safecolor(self.get_color()) + (1,)
+    fin_color = _ba.safecolor(self.get_color()) + (1, )
     if not self._inited:
         animate_array(
             self._text_node,
             "color",
             4,
-            {0.15: fin_color, 0.25: (2, 2, 2, 1), 0.35: fin_color},
+            {
+                0.15: fin_color,
+                0.25: (2, 2, 2, 1),
+                0.35: fin_color
+            },
         )
     else:
 
         # Blend if we're in teams mode; switch instantly otherwise.
         if can_switch_teams:
-            animate_array(
-                self._text_node, "color", 4, {0: self._text_node.color, 0.1: fin_color}
-            )
+            animate_array(self._text_node, "color", 4, {
+                0: self._text_node.color,
+                0.1: fin_color
+            })
         else:
             self._text_node.color = fin_color
 
@@ -397,6 +401,7 @@ def _update_text(self) -> None:
 
 
 class HeySmoothy(ba.Plugin):
+
     def __init__(self):
         _lobby.Chooser.__init__ = __init__
         _lobby.Chooser._set_ready = _set_ready

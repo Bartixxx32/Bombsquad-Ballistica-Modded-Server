@@ -45,11 +45,11 @@ def registercharacter(name, char):
 
 # ba_meta export plugin
 class HeySmoothy(ba.Plugin):
+
     def __init__(self):
 
-        path = os.path.join(
-            _ba.env()["python_directory_user"], "CustomCharacters" + os.sep
-        )
+        path = os.path.join(_ba.env()["python_directory_user"],
+                            "CustomCharacters" + os.sep)
         if not os.path.isdir(path):
             os.makedirs(path)
         files = os.listdir(path)

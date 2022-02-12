@@ -53,11 +53,11 @@ def checkChangelog():
                 avail = True
 
         if not avail:
-            print(
-                f"{Clr.BGRN}{Clr.WHT} YOU ARE ON LATEST VERSION {Clr.RST}", flush=True
-            )
+            print(f"{Clr.BGRN}{Clr.WHT} YOU ARE ON LATEST VERSION {Clr.RST}",
+                  flush=True)
         else:
-            print(f"{Clr.BYLW}{Clr.BLU} UPDATES AVAILABLE {Clr.RST}", flush=True)
+            print(f"{Clr.BYLW}{Clr.BLU} UPDATES AVAILABLE {Clr.RST}",
+                  flush=True)
             for log in changelog:
                 if int(log) > VERSION:
                     msg = changelog[log]["time"]

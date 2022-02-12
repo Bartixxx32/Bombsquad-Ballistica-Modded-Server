@@ -78,7 +78,8 @@ def bootstraping():
         from tools import discordbot
 
         discordbot.token = settings["discordbot"]["token"]
-        discordbot.liveStatsChannelID = settings["discordbot"]["liveStatsChannelID"]
+        discordbot.liveStatsChannelID = settings["discordbot"][
+            "liveStatsChannelID"]
         discordbot.logsChannelID = settings["discordbot"]["logsChannelID"]
         discordbot.liveChat = settings["discordbot"]["liveChat"]
         discordbot.BsDataThread()
@@ -104,7 +105,10 @@ ba._activity.Activity.on_begin = new_begin
 org_end = ba._activity.Activity.end
 
 
-def new_end(self, results: Any = None, delay: float = 0.0, force: bool = False):
+def new_end(self,
+            results: Any = None,
+            delay: float = 0.0,
+            force: bool = False):
     act = _ba.get_foreground_host_activity()
     if isinstance(act, CoopScoreScreen):
         TeamBalancer.checkToExitCoop()
@@ -128,7 +132,8 @@ def night_mode():
 
     if settings["autoNightMode"]["enable"]:
 
-        start = datetime.strptime(settings["autoNightMode"]["startTime"], "%H:%M")
+        start = datetime.strptime(settings["autoNightMode"]["startTime"],
+                                  "%H:%M")
         end = datetime.strptime(settings["autoNightMode"]["endTime"], "%H:%M")
         now = datetime.now()
 
@@ -138,7 +143,8 @@ def night_mode():
             activity.globalsnode.tint = (0.5, 0.7, 1.0)
 
             if settings["autoNightMode"]["fireflies"]:
-                fireflies.factory(settings["autoNightMode"]["fireflies_random_color"])
+                fireflies.factory(
+                    settings["autoNightMode"]["fireflies_random_color"])
 
 
 if settings["newResultBoard"]:
@@ -146,8 +152,7 @@ if settings["newResultBoard"]:
     dualteamscore.TeamVictoryScoreScreenActivity = newdts.TeamVictoryScoreScreenActivity
 
     multiteamscore.MultiTeamScoreScreenActivity.show_player_scores = (
-        newdts.show_player_scores
-    )
+        newdts.show_player_scores)
 
     drawscore.DrawScoreScreenActivity = newdts.DrawScoreScreenActivity
 
@@ -178,10 +183,10 @@ def importgames():
     games = os.listdir("ba_root/mods/games")
     for game in games:
         if game.endswith(".py") or game.endswith(".so"):
-            importlib.import_module(
-                "games." + game.replace(".so", "").replace(".py", "")
-            )
+            importlib.import_module("games." +
+                                    game.replace(".so", "").replace(".py", ""))
     maps = os.listdir("ba_root/mods/maps")
     for map in maps:
         if map.endswith(".py") or map.endswith(".so"):
-            importlib.import_module("maps." + map.replace(".so", "").replace(".py", ""))
+            importlib.import_module("maps." +
+                                    map.replace(".so", "").replace(".py", ""))

@@ -5,7 +5,9 @@ from tools import corelib
 from .Handlers import handlemsg
 from .Handlers import handlemsg_all
 
-Commands = ["fly", "invisible", "headless", "creepy", "celebrate", "spaz", "speed"]
+Commands = [
+    "fly", "invisible", "headless", "creepy", "celebrate", "spaz", "speed"
+]
 CommandAliases = ["inv", "hl", "creep", "celeb"]
 
 

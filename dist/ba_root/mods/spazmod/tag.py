@@ -40,7 +40,10 @@ def addhp(node):
     _set = setting.get_settings_data()
 
     def showHP():
-        HitPoint(owner=node, prefix=str(int(hp)), position=(0, 0.75, 0), shad=1.4)
+        HitPoint(owner=node,
+                 prefix=str(int(hp)),
+                 position=(0, 0.75, 0),
+                 shad=1.4)
 
     if hp:
         t = ba.Timer(
@@ -53,11 +56,15 @@ def addhp(node):
 
 
 class Tag(object):
+
     def __init__(self, owner=None, tag="somthing", col=(1, 1, 1)):
         self.node = owner
-        mnode = ba.newnode(
-            "math", owner=self.node, attrs={"input1": (0, 1.5, 0), "operation": "add"}
-        )
+        mnode = ba.newnode("math",
+                           owner=self.node,
+                           attrs={
+                               "input1": (0, 1.5, 0),
+                               "operation": "add"
+                           })
         self.node.connectattr("torso_position", mnode, "input2")
         if "\\" in tag:
 
@@ -95,11 +102,15 @@ class Tag(object):
 
 
 class Rank(object):
+
     def __init__(self, owner=None, rank=99):
         self.node = owner
-        mnode = ba.newnode(
-            "math", owner=self.node, attrs={"input1": (0, 1.2, 0), "operation": "add"}
-        )
+        mnode = ba.newnode("math",
+                           owner=self.node,
+                           attrs={
+                               "input1": (0, 1.2, 0),
+                               "operation": "add"
+                           })
         self.node.connectattr("torso_position", mnode, "input2")
         self.rank_text = ba.newnode(
             "text",
@@ -118,7 +129,12 @@ class Rank(object):
 
 
 class HitPoint(object):
-    def __init__(self, position=(0, 1.5, 0), owner=None, prefix="ADMIN", shad=1.2):
+
+    def __init__(self,
+                 position=(0, 1.5, 0),
+                 owner=None,
+                 prefix="ADMIN",
+                 shad=1.2):
         _set = setting.get_settings_data()
         if not _set["enablehptag"]:
             return
@@ -127,7 +143,10 @@ class HitPoint(object):
         m = ba.newnode(
             "math",
             owner=self.owner,
-            attrs={"input1": self.position, "operation": "add"},
+            attrs={
+                "input1": self.position,
+                "operation": "add"
+            },
         )
         self.owner.connectattr("position", m, "input2")
         prefix = int(prefix) / 10

@@ -40,21 +40,25 @@ def filter_chat_message(msg, client_id):
     if msg.startswith(",") and settings["allowTeamChat"]:
         return Main.QuickAccess(msg, client_id)
 
-    Logger.log(acid + " | " + displaystring + "|" + currentname + "| " + msg, "chat")
+    Logger.log(acid + " | " + displaystring + "|" + currentname + "| " + msg,
+               "chat")
 
     if acid in serverdata.clients and serverdata.clients[acid]["verified"]:
 
         if serverdata.muted:
-            _ba.screenmessage("Server on mute", transient=True, clients=[client_id])
+            _ba.screenmessage("Server on mute",
+                              transient=True,
+                              clients=[client_id])
             return
 
         elif serverdata.clients[acid]["isMuted"]:
-            _ba.screenmessage("You are on mute", transient=True, clients=[client_id])
+            _ba.screenmessage("You are on mute",
+                              transient=True,
+                              clients=[client_id])
             return None
-        elif (
-            servercheck.get_account_age(serverdata.clients[acid]["accountAge"])
-            < settings["minAgeToChatInHours"]
-        ):
+        elif (servercheck.get_account_age(
+                serverdata.clients[acid]["accountAge"]) <
+              settings["minAgeToChatInHours"]):
             _ba.screenmessage(
                 "New accounts not allowed to chat here",
                 transient=True,
