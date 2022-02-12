@@ -1,5 +1,5 @@
 """Wavedash by TheMikirog
-    
+
     This is an early version of the plugin. Feedback appreciated!
 
 """
