@@ -1,14 +1,15 @@
-from .Handlers import handlemsg, handlemsg_all, send
-from playersData import pdata
+import _thread
+import time
 
+import _ba
+import ba
+import setting
+from playersData import pdata
 # from tools.whitelist import add_to_white_list, add_commit_to_logs
 from serverData import serverdata
-import ba
-import _ba
-import time
-import setting
-import _thread
 from tools import playlist
+
+from .Handlers import handlemsg, handlemsg_all, send
 
 Commands = [
     "maxplayers",

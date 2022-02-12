@@ -34,26 +34,25 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-import ba
 import _ba
-from bastd.actor.playerspaz import PlayerSpaz
-
-
-from ba._error import print_exception, print_error, NotFoundError
+import ba
+from ba._error import NotFoundError, print_error, print_exception
 from ba._gameutils import animate, animate_array
+from ba._generated.enums import InputType, SpecialChar
 from ba._language import Lstr
-from ba._generated.enums import SpecialChar, InputType
 from ba._profile import get_player_profile_colors
+from bastd.actor.playerspaz import PlayerSpaz
 
 if TYPE_CHECKING:
     from typing import Any, Type, List, Dict, Tuple, Union, Sequence, Optional
-import weakref
-import os
+
 import json
+import os
+import weakref
+
 from ba import _lobby
+from ba._lobby import ChangeMessage, PlayerReadyMessage
 from bastd.actor.spazappearance import *
-from ba._lobby import ChangeMessage
-from ba._lobby import PlayerReadyMessage
 
 
 def __init__(
@@ -173,8 +172,8 @@ def __init__(
 def _set_ready(self, ready: bool) -> None:
 
     # pylint: disable=cyclic-import
-    from bastd.ui.profile import browser as pbrowser
     from ba._general import Call
+    from bastd.ui.profile import browser as pbrowser
 
     profilename = self._profilenames[self._profileindex]
 

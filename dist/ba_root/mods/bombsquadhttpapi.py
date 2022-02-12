@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
 
-# ba_meta require api 6
-import ba
-import _ba
+import _thread
 import json
-
 # for flask app ==================
 import os
+
+import _ba
+# ba_meta require api 6
+import ba
 import flask
-
-from flask import request, jsonify
-import _thread
-
+from flask import jsonify, request
 
 stats = [{}, [], {"cpu": 0, "ram": 0}]
 

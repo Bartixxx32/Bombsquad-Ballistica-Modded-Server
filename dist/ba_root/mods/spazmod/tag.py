@@ -1,7 +1,7 @@
-from stats import mystats
-from playersData import pdata
 import ba
 import setting
+from playersData import pdata
+from stats import mystats
 
 
 def addtag(node, player):

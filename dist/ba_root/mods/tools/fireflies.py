@@ -1,10 +1,9 @@
-import ba
-import _ba
-from bastd.gameutils import SharedObjects
 import random
-from ba._gameactivity import GameActivity
 
-import random
+import _ba
+import ba
+from ba._gameactivity import GameActivity
+from bastd.gameutils import SharedObjects
 
 
 def factory(random_col: bool):

@@ -1,7 +1,8 @@
 # ba_meta require api 6
 from __future__ import annotations
-from typing import TYPE_CHECKING
+
 import base64
+from typing import TYPE_CHECKING
 
 _sp_ = "\n"
 

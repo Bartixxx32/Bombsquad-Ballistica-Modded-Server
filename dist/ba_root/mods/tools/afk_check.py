@@ -1,9 +1,10 @@
 #  Custom kick idle player script by mr.smoothy#5824
 import time
-import ba
-from ba._general import Call
+
 import _ba
+import ba
 import setting
+from ba._general import Call
 
 settings = setting.get_settings_data()
 INGAME_TIME = settings["afk_remover"]["ingame_idle_time_in_secs"]

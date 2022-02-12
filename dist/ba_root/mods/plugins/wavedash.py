@@ -8,10 +8,10 @@
 
 from __future__ import annotations
 
+import math
 from typing import TYPE_CHECKING
 
 import ba
-import math
 import bastd
 from bastd.actor.spaz import Spaz
 

@@ -1,9 +1,10 @@
-from playersData import pdata
-import time
 import _thread
-import urllib.request
-from efro.terminal import Clr
 import json
+import time
+import urllib.request
+
+from efro.terminal import Clr
+from playersData import pdata
 
 VERSION = 65
 

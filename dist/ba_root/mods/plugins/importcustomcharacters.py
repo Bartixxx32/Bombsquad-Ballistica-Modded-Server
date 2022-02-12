@@ -5,16 +5,17 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-import ba
 import _ba
+import ba
 from bastd.actor.playerspaz import PlayerSpaz
 from bastd.actor.scoreboard import Scoreboard
 
 if TYPE_CHECKING:
     from typing import Any, Type, List, Dict, Tuple, Union, Sequence, Optional
 
-import os
 import json
+import os
+
 from bastd.actor.spazappearance import *
 
 

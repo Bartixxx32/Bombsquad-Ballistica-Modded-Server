@@ -1,13 +1,12 @@
 # Released under the MIT License. See LICENSE for details.
-import ba
-import _ba
-from serverData import serverdata
-from tools import profanity
-from tools import servercheck
-import time
-import setting
-from tools import Logger
 import _thread
+import time
+
+import _ba
+import ba
+import setting
+from serverData import serverdata
+from tools import Logger, profanity, servercheck
 
 settings = setting.get_settings_data()
 

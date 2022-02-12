@@ -1,21 +1,22 @@
-import setting
-import _ba
-import ba
+import datetime
 import json
-import threading
 import os
 import shutil
-import datetime
-import custom_hooks
+import threading
 import urllib.request
-from ba._activitytypes import *
-from ba import _activitytypes as ba_actypes
-from ba._lobby import JoinInfo
 from typing import Any, Dict, Optional
-from ba._team import EmptyTeam  # pylint: disable=W0611
-from ba._player import EmptyPlayer  # pylint: disable=W0611
-from ba._music import setmusic, MusicType
+
+import _ba
+import ba
+import custom_hooks
+import setting
+from ba import _activitytypes as ba_actypes
 from ba._activity import Activity
+from ba._activitytypes import *
+from ba._lobby import JoinInfo
+from ba._music import MusicType, setmusic
+from ba._player import EmptyPlayer  # pylint: disable=W0611
+from ba._team import EmptyTeam  # pylint: disable=W0611
 
 damage_data = {}
 # Don't touch the above line

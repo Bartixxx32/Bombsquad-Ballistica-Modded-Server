@@ -1,35 +1,24 @@
+import _thread
 import importlib
 import os
-from tools import dualteamscore as newdts
-import ba
-import _ba
-from chatHandle import handlechat
-import setting
-from tools import servercheck
-from tools import ServerUpdate
-import _thread
-from stats import mystats
 from datetime import datetime
-from ba import _activity
+from typing import Any, Optional
 
-from typing import Optional, Any
-from spazmod import modifyspaz
-from bastd.activity import dualteamscore
-from bastd.activity import multiteamscore
-from bastd.activity import drawscore
-from bastd.actor.zoomtext import ZoomText
-from tools import TeamBalancer
+import _ba
+import ba
+import setting
+from ba import _activity, _hooks
+from bastd.activity import drawscore, dualteamscore, multiteamscore
 from bastd.activity.coopscore import CoopScoreScreen
-from ba import _hooks
-from tools import Logger
-
-
+from bastd.actor.zoomtext import ZoomText
+from chatHandle import handlechat
 from playersData import pdata
-
-from tools import afk_check
-
+from spazmod import modifyspaz
+from stats import mystats
 # from bastd.activity.multiteamvictory import
-from tools import fireflies
+from tools import Logger, ServerUpdate, TeamBalancer, afk_check
+from tools import dualteamscore as newdts
+from tools import fireflies, servercheck
 
 settings = setting.get_settings_data()
 

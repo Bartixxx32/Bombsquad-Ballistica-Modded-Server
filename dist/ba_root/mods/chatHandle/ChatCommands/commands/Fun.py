@@ -1,7 +1,8 @@
-from .Handlers import handlemsg, handlemsg_all
-import ba
 import _ba
+import ba
 from tools import corelib
+
+from .Handlers import handlemsg, handlemsg_all
 
 Commands = ["fly", "invisible", "headless", "creepy", "celebrate", "spaz", "speed"]
 CommandAliases = ["inv", "hl", "creep", "celeb"]
