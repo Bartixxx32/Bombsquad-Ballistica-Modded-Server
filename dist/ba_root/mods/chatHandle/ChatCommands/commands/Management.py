@@ -1,5 +1,6 @@
 from .Handlers import handlemsg, handlemsg_all, send
 from playersData import pdata
+
 # from tools.whitelist import add_to_white_list, add_commit_to_logs
 from serverData import serverdata
 import ba
@@ -8,97 +9,140 @@ import time
 import setting
 import _thread
 from tools import playlist
-Commands = ['maxplayers', 'playlist', 'ban', 'kick', 'remove', 'end', 'quit', 'mute', 'unmute', 'slowmo', 'nv', 'dv', 'pause', 'cameramode', 'createrole', 'addrole',
-            'removerole', 'addcommand', 'addcmd', 'removecommand', 'getroles', 'removecmd', 'changetag', 'customtag', 'customeffect', 'add', 'spectators', 'lobbytime']
-CommandAliases = ['max', 'rm', 'next', 'restart', 'mutechat', 'unmutechat', 'sm',
-                  'slow', 'night', 'day', 'pausegame', 'camera_mode', 'rotate_camera', 'effect']
+
+Commands = [
+    "maxplayers",
+    "playlist",
+    "ban",
+    "kick",
+    "remove",
+    "end",
+    "quit",
+    "mute",
+    "unmute",
+    "slowmo",
+    "nv",
+    "dv",
+    "pause",
+    "cameramode",
+    "createrole",
+    "addrole",
+    "removerole",
+    "addcommand",
+    "addcmd",
+    "removecommand",
+    "getroles",
+    "removecmd",
+    "changetag",
+    "customtag",
+    "customeffect",
+    "add",
+    "spectators",
+    "lobbytime",
+]
+CommandAliases = [
+    "max",
+    "rm",
+    "next",
+    "restart",
+    "mutechat",
+    "unmutechat",
+    "sm",
+    "slow",
+    "night",
+    "day",
+    "pausegame",
+    "camera_mode",
+    "rotate_camera",
+    "effect",
+]
 
 
 def ExcelCommand(command, arguments, clientid, accountid):
     """
-    Checks The Command And Run Function 
+    Checks The Command And Run Function
 
     Parameters:
-            command : str 
-            arguments : str 
-            clientid : int 
-            accountid : int 
+            command : str
+            arguments : str
+            clientid : int
+            accountid : int
 
     Returns:
-            None 
+            None
     """
-    if command in ['maxplayers', 'max']:
+    if command in ["maxplayers", "max"]:
         changepartysize(arguments)
-    elif command == 'playlist':
+    elif command == "playlist":
         changeplaylist(arguments)
-    elif command == 'kick':
+    elif command == "kick":
         kick(arguments)
-    elif command == 'ban':
+    elif command == "ban":
         ban(arguments)
-    elif command in ['end', 'next']:
+    elif command in ["end", "next"]:
         end(arguments)
 
-    elif command in ['quit', 'restart']:
+    elif command in ["quit", "restart"]:
         quit(arguments)
 
-    elif command in ['mute', 'mutechat']:
+    elif command in ["mute", "mutechat"]:
         mute(arguments)
 
-    elif command in ['unmute', 'unmutechat']:
+    elif command in ["unmute", "unmutechat"]:
         un_mute(arguments)
 
-    elif command in ['remove', 'rm']:
+    elif command in ["remove", "rm"]:
         remove(arguments)
 
-    elif command in ['sm', 'slow', 'slowmo']:
+    elif command in ["sm", "slow", "slowmo"]:
         slow_motion()
 
-    elif command in ['nv', 'night']:
+    elif command in ["nv", "night"]:
         nv(arguments)
 
-    elif command in ['dv', 'day']:
+    elif command in ["dv", "day"]:
         dv(arguments)
 
-    elif command in ['pause', 'pausegame']:
+    elif command in ["pause", "pausegame"]:
         pause()
 
-    elif command in ['cameraMode', 'camera_mode', 'rotate_camera']:
+    elif command in ["cameraMode", "camera_mode", "rotate_camera"]:
         rotate_camera()
 
-    elif command == 'createrole':
+    elif command == "createrole":
         create_role(arguments)
 
-    elif command == 'addrole':
+    elif command == "addrole":
         add_role_to_player(arguments)
 
-    elif command == 'removerole':
+    elif command == "removerole":
         remove_role_from_player(arguments)
 
-    elif command == 'getroles':
+    elif command == "getroles":
         get_roles_of_player(arguments, clientid)
 
-    elif command in ['addcommand', 'addcmd']:
+    elif command in ["addcommand", "addcmd"]:
         add_command_to_role(arguments)
 
-    elif command in ['removecommand', 'removecmd']:
+    elif command in ["removecommand", "removecmd"]:
         remove_command_to_role(arguments)
 
-    elif command == 'changetag':
+    elif command == "changetag":
         change_role_tag(arguments)
 
-    elif command == 'customtag':
+    elif command == "customtag":
         set_custom_tag(arguments)
 
-    elif command in ['customeffect', 'effect']:
+    elif command in ["customeffect", "effect"]:
         set_custom_effect(arguments)
 
     # elif command in ['add', 'whitelist']:
     # 	whitelst_it(accountid, arguments)
 
-    elif command == 'spectators':
+    elif command == "spectators":
         spectators(arguments)
 
-    elif command == 'lobbytime':
+    elif command == "lobbytime":
         change_lobby_check_time(arguments)
 
 
@@ -113,7 +157,7 @@ def changeplaylist(arguments):
     if len(arguments) == 0:
         _ba.chatmessage("enter list code or name")
     else:
-        if arguments[0] == 'coop':
+        if arguments[0] == "coop":
             serverdata.coopmode = True
         else:
             serverdata.coopmode = False
@@ -128,7 +172,7 @@ def kick(arguments):
 
 def end(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
 
         try:
             with _ba.Context(_ba.get_foreground_host_activity()):
@@ -143,10 +187,9 @@ def ban(arguments):
         ac_id = ""
         for ros in _ba.get_game_roster():
             if ros["client_id"] == cl_id:
-                _thread.start_new_thread(
-                    pdata.ban_player, (ros['account_id'],))
+                _thread.start_new_thread(pdata.ban_player, (ros["account_id"],))
 
-                ac_id = ros['account_id']
+                ac_id = ros["account_id"]
         if ac_id in serverdata.clients:
             serverdata.clients[ac_id]["isBan"] = True
         kick(arguments)
@@ -156,7 +199,7 @@ def ban(arguments):
 
 def quit(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         ba.quit()
 
 
@@ -168,9 +211,9 @@ def mute(arguments):
         ac_id = ""
         for ros in _ba.get_game_roster():
             if ros["client_id"] == cl_id:
-                _thread.start_new_thread(pdata.mute, (ros['account_id'],))
+                _thread.start_new_thread(pdata.mute, (ros["account_id"],))
 
-                ac_id = ros['account_id']
+                ac_id = ros["account_id"]
         if ac_id in serverdata.clients:
             serverdata.clients[ac_id]["isMuted"] = True
     except:
@@ -186,8 +229,8 @@ def un_mute(arguments):
         ac_id = ""
         for ros in _ba.get_game_roster():
             if ros["client_id"] == cl_id:
-                pdata.unmute(ros['account_id'])
-                ac_id = ros['account_id']
+                pdata.unmute(ros["account_id"])
+                ac_id = ros["account_id"]
         if ac_id in serverdata.clients:
             serverdata.clients[ac_id]["isMuted"] = False
         return
@@ -197,10 +240,10 @@ def un_mute(arguments):
 
 def remove(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         return
 
-    elif arguments[0] == 'all':
+    elif arguments[0] == "all":
         session = _ba.get_foreground_host_session()
         for i in session.sessionplayers:
             i.remove_from_game()
@@ -230,7 +273,7 @@ def nv(arguments):
 
     activity = _ba.get_foreground_host_activity()
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
 
         if activity.globalsnode.tint != (0.5, 0.7, 1.0):
             activity.globalsnode.tint = (0.5, 0.7, 1.0)
@@ -238,7 +281,7 @@ def nv(arguments):
             # will fix this soon
             pass
 
-    elif arguments[0] == 'off':
+    elif arguments[0] == "off":
         if activity.globalsnode.tint != (0.5, 0.7, 1.0):
             return
         else:
@@ -249,7 +292,7 @@ def dv(arguments):
 
     activity = _ba.get_foreground_host_activity()
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
 
         if activity.globalsnode.tint != (1, 1, 1):
             activity.globalsnode.tint = (1, 1, 1)
@@ -257,7 +300,7 @@ def dv(arguments):
             # will fix this soon
             pass
 
-    elif arguments[0] == 'off':
+    elif arguments[0] == "off":
         if activity.globalsnode.tint != (1, 1, 1):
             return
         else:
@@ -279,11 +322,11 @@ def rotate_camera():
 
     activity = _ba.get_foreground_host_activity()
 
-    if activity.globalsnode.camera_mode != 'rotate':
-        activity.globalsnode.camera_mode = 'rotate'
+    if activity.globalsnode.camera_mode != "rotate":
+        activity.globalsnode.camera_mode = "rotate"
 
     else:
-        activity.globalsnode.camera_mode == 'normal'
+        activity.globalsnode.camera_mode == "normal"
 
 
 def create_role(arguments):
@@ -309,8 +352,7 @@ def remove_role_from_player(arguments):
         session = _ba.get_foreground_host_session()
         for i in session.sessionplayers:
             if i.inputdevice.client_id == int(arguments[1]):
-                roles = pdata.remove_player_role(
-                    arguments[0], i.get_account_id())
+                roles = pdata.remove_player_role(arguments[0], i.get_account_id())
 
     except:
         return
@@ -326,7 +368,7 @@ def get_roles_of_player(arguments, clientid):
                 roles = pdata.get_player_roles(i.get_account_id())
                 print(roles)
         for role in roles:
-            reply = reply+role+","
+            reply = reply + role + ","
         send(reply, clientid)
     except:
         return
@@ -359,8 +401,68 @@ def set_custom_effect(arguments):
         return
 
 
-all_commands = ["changetag", "createrole", "addrole", "removerole", "addcommand", "addcmd", "removecommand", "removecmd", "kick", "remove", "rm", "end", "next", "quit", "restart", "mute", "mutechat", "unmute", "unmutechat", "sm", "slow", "slowmo", "nv", "night", "dv", "day", "pause", "pausegame", "cameraMode",
-                "camera_mode", "rotate_camera", "kill", "die", "heal", "heath", "curse", "cur", "sleep", "sp", "superpunch", "gloves", "punch", "shield", "protect", "freeze", "ice", "unfreeze", "thaw", "gm", "godmode", "fly", "inv", "invisible", "hl", "headless", "creepy", "creep", "celebrate", "celeb", "spaz"]
+all_commands = [
+    "changetag",
+    "createrole",
+    "addrole",
+    "removerole",
+    "addcommand",
+    "addcmd",
+    "removecommand",
+    "removecmd",
+    "kick",
+    "remove",
+    "rm",
+    "end",
+    "next",
+    "quit",
+    "restart",
+    "mute",
+    "mutechat",
+    "unmute",
+    "unmutechat",
+    "sm",
+    "slow",
+    "slowmo",
+    "nv",
+    "night",
+    "dv",
+    "day",
+    "pause",
+    "pausegame",
+    "cameraMode",
+    "camera_mode",
+    "rotate_camera",
+    "kill",
+    "die",
+    "heal",
+    "heath",
+    "curse",
+    "cur",
+    "sleep",
+    "sp",
+    "superpunch",
+    "gloves",
+    "punch",
+    "shield",
+    "protect",
+    "freeze",
+    "ice",
+    "unfreeze",
+    "thaw",
+    "gm",
+    "godmode",
+    "fly",
+    "inv",
+    "invisible",
+    "hl",
+    "headless",
+    "creepy",
+    "creep",
+    "celebrate",
+    "celeb",
+    "spaz",
+]
 
 
 def add_command_to_role(arguments):
@@ -399,27 +501,27 @@ def remove_command_to_role(arguments):
 # 		_ba.chatmessage("whitelist off")
 # 		return
 
-    # else:
-    # 	rost = _ba.get_game_roster()
+# else:
+# 	rost = _ba.get_game_roster()
 
-    # 	for i in rost:
-    # 		if i['client_id'] == int(arguments[0]):
-    # 			add_to_white_list(i['account_id'], i['display_string'])
-    # 			_ba.chatmessage(str(i['display_string'])+" whitelisted")
-    # 			add_commit_to_logs(accountid+" added "+i['account_id'])
+# 	for i in rost:
+# 		if i['client_id'] == int(arguments[0]):
+# 			add_to_white_list(i['account_id'], i['display_string'])
+# 			_ba.chatmessage(str(i['display_string'])+" whitelisted")
+# 			add_commit_to_logs(accountid+" added "+i['account_id'])
 
 
 def spectators(arguments):
 
-    if arguments[0] in ['on', 'off']:
+    if arguments[0] in ["on", "off"]:
         settings = setting.get_settings_data()
 
-        if arguments[0] == 'on':
+        if arguments[0] == "on":
             settings["white_list"]["spectators"] = True
             setting.commit(settings)
             _ba.chatmessage("spectators on")
 
-        elif arguments[0] == 'off':
+        elif arguments[0] == "off":
             settings["white_list"]["spectators"] = False
             setting.commit(settings)
             _ba.chatmessage("spectators off")

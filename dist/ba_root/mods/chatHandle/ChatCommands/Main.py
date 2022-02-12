@@ -14,6 +14,7 @@ import _ba
 import setting
 
 from serverData import serverdata
+
 settings = setting.get_settings_data()
 
 
@@ -25,7 +26,7 @@ def command_type(command):
             command : str
 
     Returns:
-            any 
+            any
     """
     if command in NormalCommands.Commands or command in NormalCommands.CommandAliases:
         return "Normal"
@@ -45,7 +46,7 @@ def Command(msg, clientid):
     Command Execution
 
     Parameters:
-            msg : str 
+            msg : str
             clientid : int
 
     Returns:
@@ -63,29 +64,25 @@ def Command(msg, clientid):
             Management.ExcelCommand(command, arguments, clientid, accountid)
             _ba.screenmessage("Executed", transient=True, clients=[clientid])
         else:
-            _ba.screenmessage("access denied", transient=True,
-                              clients=[clientid])
+            _ba.screenmessage("access denied", transient=True, clients=[clientid])
 
     elif command_type(command) == "Fun":
         if check_permissions(accountid, command):
             Fun.ExcelCommand(command, arguments, clientid, accountid)
             _ba.screenmessage("Executed", transient=True, clients=[clientid])
         else:
-            _ba.screenmessage("access denied", transient=True,
-                              clients=[clientid])
+            _ba.screenmessage("access denied", transient=True, clients=[clientid])
 
     elif command_type(command) == "Cheats":
         if check_permissions(accountid, command):
             Cheats.ExcelCommand(command, arguments, clientid, accountid)
             _ba.screenmessage("Executed", transient=True, clients=[clientid])
         else:
-            _ba.screenmessage("access denied", transient=True,
-                              clients=[clientid])
+            _ba.screenmessage("access denied", transient=True, clients=[clientid])
 
     if accountid in serverdata.clients:
         if serverdata.clients[accountid]["isMuted"]:
-            _ba.screenmessage("You are on mute",
-                              transient=True, clients=[clientid])
+            _ba.screenmessage("You are on mute", transient=True, clients=[clientid])
             return None
     if serverdata.muted:
         return None
@@ -104,7 +101,10 @@ def QuickAccess(msg, client_id):
 
         for i in _ba.get_foreground_host_session().sessionplayers:
             if teamid == i.sessionteam.id and i.inputdevice.client_id != client_id:
-                _ba.screenmessage(i.getname(
-                    True)+":"+msg[1:], clients=[i.inputdevice.client_id], color=(0.3, 0.6, 0.3))
+                _ba.screenmessage(
+                    i.getname(True) + ":" + msg[1:],
+                    clients=[i.inputdevice.client_id],
+                    color=(0.3, 0.6, 0.3),
+                )
 
     return None

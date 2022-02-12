@@ -16,6 +16,7 @@ from ba._team import EmptyTeam  # pylint: disable=W0611
 from ba._player import EmptyPlayer  # pylint: disable=W0611
 from ba._music import setmusic, MusicType
 from ba._activity import Activity
+
 damage_data = {}
 # Don't touch the above line
 """
@@ -28,12 +29,12 @@ top3Name = []
 # variables
 our_settings = setting.get_settings_data()
 # where our stats file and pretty html output will go
-base_path = os.path.join(_ba.env()['python_directory_user'], "stats" + os.sep)
-statsfile = base_path + 'stats.json'
-htmlfile = base_path + 'stats_page.html'
+base_path = os.path.join(_ba.env()["python_directory_user"], "stats" + os.sep)
+statsfile = base_path + "stats.json"
+htmlfile = base_path + "stats_page.html"
 table_style = "{width:100%;border: 3px solid black;border-spacing: 5px;border-collapse:collapse;text-align:center;background-color:#fff}"
 heading_style = "{border: 3px solid black;text-align:center;}"
-html_start = f'''<!DOCTYPE html>
+html_start = f"""<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -51,7 +52,7 @@ html_start = f'''<!DOCTYPE html>
                 <th><b>Deaths</b></th>
                 <th><b>Games Played</b></th>
             </tr>
-'''
+"""
 statsDefault = {
     "pb-IF4VAk4a": {
         "rank": 65,
@@ -63,7 +64,7 @@ statsDefault = {
         "games": 18,
         "kd": 0.0,
         "avg_score": 0.0,
-        "aid": "pb-IF4VAk4a"
+        "aid": "pb-IF4VAk4a",
     }
 }
 #                <th><b>Total Damage</b></th>  #removed this line as it isn't crt data
@@ -76,14 +77,17 @@ def get_all_stats():
     global seasonStartDate
     if os.path.exists(statsfile):
         renameFile = False
-        with open(statsfile, 'r') as f:
+        with open(statsfile, "r") as f:
             jsonData = json.loads(f.read())
             try:
                 stats = jsonData["stats"]
 
                 seasonStartDate = datetime.datetime.strptime(
-                    jsonData["startDate"], "%d-%m-%Y")
-                if (datetime.datetime.now()-seasonStartDate).days >= our_settings["statsResetAfterDays"]:
+                    jsonData["startDate"], "%d-%m-%Y"
+                )
+                if (datetime.datetime.now() - seasonStartDate).days >= our_settings[
+                    "statsResetAfterDays"
+                ]:
                     backupStatsFile()
                     seasonStartDate = datetime.datetime.now()
                     return statsDefault
@@ -95,8 +99,9 @@ def get_all_stats():
 
 
 def backupStatsFile():
-    shutil.copy(statsfile, statsfile.replace(
-        ".json", "")+str(seasonStartDate)+".json")
+    shutil.copy(
+        statsfile, statsfile.replace(".json", "") + str(seasonStartDate) + ".json"
+    )
 
 
 def dump_stats(s: dict):
@@ -105,11 +110,11 @@ def dump_stats(s: dict):
         seasonStartDate = datetime.datetime.now()
     s = {"startDate": seasonStartDate.strftime("%d-%m-%Y"), "stats": s}
     if os.path.exists(statsfile):
-        with open(statsfile, 'w') as f:
+        with open(statsfile, "w") as f:
             f.write(json.dumps(s, indent=4))
             f.close()
     else:
-        print('Stats file not found!')
+        print("Stats file not found!")
 
 
 def get_stats_by_id(ID: str):
@@ -128,8 +133,10 @@ def refreshStats():
     # f=open(htmlfile, 'w')
     # f.write(html_start)
 
-    entries = [(a['scores'], a['kills'], a['deaths'], a['games'],
-                a['name'], a['aid']) for a in pStats.values()]
+    entries = [
+        (a["scores"], a["kills"], a["deaths"], a["games"], a["name"], a["aid"])
+        for a in pStats.values()
+    ]
     # this gives us a list of kills/names sorted high-to-low
     entries.sort(reverse=True)
     rank = 0
@@ -150,22 +157,21 @@ def refreshStats():
             # The below kd and avg_score will not be added to website's html document, it will be only added in stats.json
             try:
                 kd = str(float(kills) / float(deaths))
-                kd_int = kd.split('.')[0]
-                kd_dec = kd.split('.')[1]
-                p_kd = kd_int + '.' + kd_dec[:3]
+                kd_int = kd.split(".")[0]
+                kd_dec = kd.split(".")[1]
+                p_kd = kd_int + "." + kd_dec[:3]
             except Exception:
                 p_kd = "0"
             try:
                 avg_score = str(float(scores) / float(games))
-                avg_score_int = avg_score.split('.')[0]
-                avg_score_dec = avg_score.split('.')[1]
-                p_avg_score = avg_score_int + '.' + avg_score_dec[:3]
+                avg_score_int = avg_score.split(".")[0]
+                avg_score_dec = avg_score.split(".")[1]
+                p_avg_score = avg_score_int + "." + avg_score_dec[:3]
             except Exception:
                 p_avg_score = "0"
             if damage_data and aid in damage_data:
                 dmg = damage_data[aid]
-                dmg = str(str(dmg).split('.')[
-                          0] + '.' + str(dmg).split('.')[1][:3])
+                dmg = str(str(dmg).split(".")[0] + "." + str(dmg).split(".")[1][:3])
             else:
                 dmg = 0
 
@@ -181,21 +187,21 @@ def refreshStats():
             pStats[str(aid)]["kd"] = float(p_kd)
             pStats[str(aid)]["avg_score"] = float(p_avg_score)
 
-#             if rank < 201:
-#                 #<td>{str(dmg)}</td> #removed this line as it isn't crt data
-#                 f.write(f'''
-#             <tr>
-#                 <td>{str(rank)}</td>
-#                 <td style="text-align:center">{str(name)}</td>
-#                 <td>{str(scores)}</td>
-#                 <td>{str(kills)}</td>
-#                 <td>{str(deaths)}</td>
-#                 <td>{str(games)}</td>
-#             </tr>''')
-#     f.write('''
-#         </table>
-#     </body>
-# </html>''')
+    #             if rank < 201:
+    #                 #<td>{str(dmg)}</td> #removed this line as it isn't crt data
+    #                 f.write(f'''
+    #             <tr>
+    #                 <td>{str(rank)}</td>
+    #                 <td style="text-align:center">{str(name)}</td>
+    #                 <td>{str(scores)}</td>
+    #                 <td>{str(kills)}</td>
+    #                 <td>{str(deaths)}</td>
+    #                 <td>{str(games)}</td>
+    #             </tr>''')
+    #     f.write('''
+    #         </table>
+    #     </body>
+    # </html>''')
 
     # f.close()
     global ranks
@@ -205,6 +211,7 @@ def refreshStats():
     updateTop3Names(toppersIDs[0:3])
 
     from playersData import pdata
+
     pdata.update_toppers(toppersIDs)
 
 
@@ -263,43 +270,46 @@ class UpdateThread(threading.Thread):
                 # (we only do this when first creating the entry to save time,
                 # though it may be smart to refresh it periodically since
                 # it may change)
-                '''url = 'http://bombsquadgame.com/accountquery?id=' + account_id
+                """url = 'http://bombsquadgame.com/accountquery?id=' + account_id
                 response = json.loads(
                     urllib.request.urlopen(urllib.Request(url)).read())
                 print('response variable from mystats.py line 183:')
                 print(response)
-                name_html = response['name_html']'''
-                stats[account_id] = {'rank': 0,
-                                     'name': "default",
-                                     'scores': 0,
-                                     'total_damage': 0,
-                                     'kills': 0,
-                                     'deaths': 0,
-                                     'games': 0,
-                                     'kd': 0,
-                                     'avg_score': 0,
-                                     'aid': str(account_id)}
+                name_html = response['name_html']"""
+                stats[account_id] = {
+                    "rank": 0,
+                    "name": "default",
+                    "scores": 0,
+                    "total_damage": 0,
+                    "kills": 0,
+                    "deaths": 0,
+                    "games": 0,
+                    "kd": 0,
+                    "avg_score": 0,
+                    "aid": str(account_id),
+                }
 
             # Temporary codes to change 'name_html' to 'name'
-            if 'name_html' in stats[account_id]:
-                stats[account_id].pop('name_html')
-                stats[account_id]['name'] = 'default'
+            if "name_html" in stats[account_id]:
+                stats[account_id].pop("name_html")
+                stats[account_id]["name"] = "default"
 
             # now increment their kills whether they were already there or not
-            stats[account_id]['kills'] += kill_count
-            stats[account_id]['deaths'] += self.account_deaths[account_id]
-            stats[account_id]['scores'] += self.account_scores[account_id]
+            stats[account_id]["kills"] += kill_count
+            stats[account_id]["deaths"] += self.account_deaths[account_id]
+            stats[account_id]["scores"] += self.account_scores[account_id]
             # also incrementing the games played and adding the id
-            stats[account_id]['games'] += 1
-            stats[account_id]['aid'] = str(account_id)
+            stats[account_id]["games"] += 1
+            stats[account_id]["aid"] = str(account_id)
         # dump our stats back to disk
         tempppp = None
         from datetime import datetime
+
         dump_stats(stats)
         # aaand that's it!  There IS no step 27!
         now = datetime.now()
         update_time = now.strftime("%S:%M:%H - %d %b %y")
-        #print(f"Added {str(len(self._account_kills))} account's stats entries. || {str(update_time)}")
+        # print(f"Added {str(len(self._account_kills))} account's stats entries. || {str(update_time)}")
         refreshStats()
 
 
@@ -308,14 +318,14 @@ def getRank(acc_id):
     if ranks == []:
         refreshStats()
     if acc_id in ranks:
-        return ranks.index(acc_id)+1
+        return ranks.index(acc_id) + 1
 
 
 def updateTop3Names(ids):
     global top3Name
     names = []
     for id in ids:
-        url = "http://bombsquadgame.com/bsAccountInfo?buildNumber=20258&accountID="+id
+        url = "http://bombsquadgame.com/bsAccountInfo?buildNumber=20258&accountID=" + id
         data = urllib.request.urlopen(url)
         if data is not None:
             try:

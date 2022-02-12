@@ -4,6 +4,7 @@ import _thread
 import urllib.request
 from efro.terminal import Clr
 import json
+
 VERSION = 65
 
 
@@ -26,7 +27,7 @@ def updateProfilesJson():
 def fetchChangelogs():
     url = "https://raw.githubusercontent.com/imayushsaini/Bombsquad-Ballistica-Modded-Server/public-server/dist/ba_root/mods/changelogs.json"
 
-    if 2*2 == 4:
+    if 2 * 2 == 4:
         try:
             data = urllib.request.urlopen(url)
             changelog = json.loads(data.read())
@@ -40,7 +41,9 @@ def checkChangelog():
     changelog = fetchChangelogs()
     if changelog == None:
         print(
-            f'{Clr.BRED} UNABLE TO CHECK UPDATES , CHECK MANUALLY FROM URL {Clr.RST}', flush=True)
+            f"{Clr.BRED} UNABLE TO CHECK UPDATES , CHECK MANUALLY FROM URL {Clr.RST}",
+            flush=True,
+        )
     else:
         msg = ""
         avail = False
@@ -50,13 +53,14 @@ def checkChangelog():
 
         if not avail:
             print(
-                f'{Clr.BGRN}{Clr.WHT} YOU ARE ON LATEST VERSION {Clr.RST}', flush=True)
+                f"{Clr.BGRN}{Clr.WHT} YOU ARE ON LATEST VERSION {Clr.RST}", flush=True
+            )
         else:
-            print(f'{Clr.BYLW}{Clr.BLU} UPDATES AVAILABLE {Clr.RST}', flush=True)
+            print(f"{Clr.BYLW}{Clr.BLU} UPDATES AVAILABLE {Clr.RST}", flush=True)
             for log in changelog:
                 if int(log) > VERSION:
                     msg = changelog[log]["time"]
-                    print(f'{Clr.CYN} {msg} {Clr.RST}', flush=True)
+                    print(f"{Clr.CYN} {msg} {Clr.RST}", flush=True)
 
                     msg = changelog[log]["log"]
-                    print(f'{Clr.MAG} {msg} {Clr.RST}', flush=True)
+                    print(f"{Clr.MAG} {msg} {Clr.RST}", flush=True)

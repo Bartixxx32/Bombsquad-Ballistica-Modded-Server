@@ -3,49 +3,48 @@ import ba
 import _ba
 from tools import corelib
 
-Commands = ['fly', 'invisible', 'headless',
-            'creepy', 'celebrate', 'spaz', 'speed']
-CommandAliases = ['inv', 'hl', 'creep', 'celeb']
+Commands = ["fly", "invisible", "headless", "creepy", "celebrate", "spaz", "speed"]
+CommandAliases = ["inv", "hl", "creep", "celeb"]
 
 
 def ExcelCommand(command, arguments, clientid, accountid):
     """
-    Checks The Command And Run Function 
+    Checks The Command And Run Function
 
     Parameters:
-            command : str 
-            arguments : str 
-            clientid : int 
-            accountid : int 
+            command : str
+            arguments : str
+            clientid : int
+            accountid : int
 
     Returns:
-            None 
+            None
     """
 
-    if command == 'speed':
+    if command == "speed":
         speed(arguments)
 
-    elif command == 'fly':
+    elif command == "fly":
         fly(arguments)
 
-    elif command in ['inv', 'invisible']:
+    elif command in ["inv", "invisible"]:
         invi(arguments)
 
-    elif command in ['hl', 'headless']:
+    elif command in ["hl", "headless"]:
         headless(arguments)
 
-    elif command in ['creepy', 'creep']:
+    elif command in ["creepy", "creep"]:
         creep(arguments)
 
-    elif command in ['celebrate', 'celeb']:
+    elif command in ["celebrate", "celeb"]:
         celeb(arguments)
 
-    elif command == 'spaz':
+    elif command == "spaz":
         spaz(arguments)
 
 
 def speed(arguments):
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         return
     else:
         corelib.set_speed(float(arguments[0]))
@@ -53,10 +52,10 @@ def speed(arguments):
 
 def fly(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         return
 
-    elif arguments[0] == 'all':
+    elif arguments[0] == "all":
 
         activity = _ba.get_foreground_host_activity()
 
@@ -83,10 +82,10 @@ def fly(arguments):
 
 def invi(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         return
 
-    elif arguments[0] == 'all':
+    elif arguments[0] == "all":
 
         activity = _ba.get_foreground_host_activity()
 
@@ -102,7 +101,7 @@ def invi(arguments):
                 body.toes_model = None
                 body.upper_leg_model = None
                 body.lower_leg_model = None
-                body.style = 'cyborg'
+                body.style = "cyborg"
     else:
 
         player = int(arguments[0])
@@ -120,15 +119,15 @@ def invi(arguments):
             body.toes_model = None
             body.upper_leg_model = None
             body.lower_leg_model = None
-            body.style = 'cyborg'
+            body.style = "cyborg"
 
 
 def headless(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         return
 
-    elif arguments[0] == 'all':
+    elif arguments[0] == "all":
 
         activity = _ba.get_foreground_host_activity()
 
@@ -137,7 +136,7 @@ def headless(arguments):
             node = players.actor.node
             if node.head_model != None:
                 node.head_model = None
-                node.style = 'cyborg'
+                node.style = "cyborg"
 
     else:
         try:
@@ -148,17 +147,17 @@ def headless(arguments):
 
             if node.head_model != None:
                 node.head_model = None
-                node.style = 'cyborg'
+                node.style = "cyborg"
         except:
             return
 
 
 def creep(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         return
 
-    elif arguments[0] == 'all':
+    elif arguments[0] == "all":
 
         activity = _ba.get_foreground_host_activity()
 
@@ -167,8 +166,8 @@ def creep(arguments):
 
             if node.head_model != None:
                 node.head_model = None
-                node.handlemessage(ba.PowerupMessage(poweruptype='punch'))
-                node.handlemessage(ba.PowerupMessage(poweruptype='shield'))
+                node.handlemessage(ba.PowerupMessage(poweruptype="punch"))
+                node.handlemessage(ba.PowerupMessage(poweruptype="shield"))
 
     else:
         try:
@@ -179,18 +178,18 @@ def creep(arguments):
 
             if node.head_model != None:
                 node.head_model = None
-                node.handlemessage(ba.PowerupMessage(poweruptype='punch'))
-                node.handlemessage(ba.PowerupMessage(poweruptype='shield'))
+                node.handlemessage(ba.PowerupMessage(poweruptype="punch"))
+                node.handlemessage(ba.PowerupMessage(poweruptype="shield"))
         except:
             return
 
 
 def celeb(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         return
 
-    elif arguments[0] == 'all':
+    elif arguments[0] == "all":
         handlemsg_all(ba.CelebrateMessage())
 
     else:
@@ -203,7 +202,7 @@ def celeb(arguments):
 
 def spaz(arguments):
 
-    if arguments == [] or arguments == ['']:
+    if arguments == [] or arguments == [""]:
         return
 
     return

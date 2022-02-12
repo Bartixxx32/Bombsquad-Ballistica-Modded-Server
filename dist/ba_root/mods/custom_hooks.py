@@ -1,4 +1,3 @@
-
 import importlib
 import os
 from tools import dualteamscore as newdts
@@ -28,8 +27,10 @@ from tools import Logger
 from playersData import pdata
 
 from tools import afk_check
+
 # from bastd.activity.multiteamvictory import
 from tools import fireflies
+
 settings = setting.get_settings_data()
 
 
@@ -42,7 +43,7 @@ def on_app_launch():
     bootstraping()
     servercheck.checkserver().start()
     ServerUpdate.check()
-    if settings["afk_remover"]['enable']:
+    if settings["afk_remover"]["enable"]:
         afk_check.checkIdle().start()
 
         # something
@@ -69,6 +70,7 @@ def bootstraping():
     _thread.start_new_thread(mystats.refreshStats, ())
     if settings["elPatronPowerups"]["enable"]:
         from tools import elPatronPowerups
+
         elPatronPowerups.enable()
     if settings["mikirogQuickTurn"]["enable"]:
         from tools import wavedash
@@ -77,6 +79,7 @@ def bootstraping():
         pdata.loadWhitelist()
     if settings["discordbot"]["enable"]:
         from tools import discordbot
+
         discordbot.token = settings["discordbot"]["token"]
         discordbot.liveStatsChannelID = settings["discordbot"]["liveStatsChannelID"]
         discordbot.logsChannelID = settings["discordbot"]["logsChannelID"]
@@ -126,11 +129,10 @@ ba._activity.Activity.on_player_join = on_player_join
 
 def night_mode():
 
-    if(settings['autoNightMode']['enable']):
+    if settings["autoNightMode"]["enable"]:
 
-        start = datetime.strptime(
-            settings['autoNightMode']['startTime'], "%H:%M")
-        end = datetime.strptime(settings['autoNightMode']['endTime'], "%H:%M")
+        start = datetime.strptime(settings["autoNightMode"]["startTime"], "%H:%M")
+        end = datetime.strptime(settings["autoNightMode"]["endTime"], "%H:%M")
         now = datetime.now()
 
         if now.time() > start.time() or now.time() < end.time():
@@ -138,16 +140,17 @@ def night_mode():
 
             activity.globalsnode.tint = (0.5, 0.7, 1.0)
 
-            if settings['autoNightMode']['fireflies']:
-                fireflies.factory(
-                    settings['autoNightMode']["fireflies_random_color"])
+            if settings["autoNightMode"]["fireflies"]:
+                fireflies.factory(settings["autoNightMode"]["fireflies_random_color"])
 
 
 if settings["newResultBoard"]:
 
     dualteamscore.TeamVictoryScoreScreenActivity = newdts.TeamVictoryScoreScreenActivity
 
-    multiteamscore.MultiTeamScoreScreenActivity.show_player_scores = newdts.show_player_scores
+    multiteamscore.MultiTeamScoreScreenActivity.show_player_scores = (
+        newdts.show_player_scores
+    )
 
     drawscore.DrawScoreScreenActivity = newdts.DrawScoreScreenActivity
 
@@ -157,14 +160,14 @@ def scoreScreenBegin():
 
 
 def kick_vote_started(by, to):
-    Logger.log(by+" started kick vote for "+to)
+    Logger.log(by + " started kick vote for " + to)
 
 
 _hooks.kick_vote_started = kick_vote_started
 
 
 def on_kicked(id):
-    Logger.log(id+" kicked by kickvotes")
+    Logger.log(id + " kicked by kickvotes")
 
 
 _hooks.on_kicked = on_kicked
@@ -179,9 +182,9 @@ def importgames():
     for game in games:
         if game.endswith(".py") or game.endswith(".so"):
             importlib.import_module(
-                "games."+game.replace(".so", "").replace(".py", ""))
+                "games." + game.replace(".so", "").replace(".py", "")
+            )
     maps = os.listdir("ba_root/mods/maps")
     for map in maps:
         if map.endswith(".py") or map.endswith(".so"):
-            importlib.import_module(
-                "maps."+map.replace(".so", "").replace(".py", ""))
+            importlib.import_module("maps." + map.replace(".so", "").replace(".py", ""))
