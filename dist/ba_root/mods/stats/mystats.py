@@ -4,7 +4,9 @@ import os
 import shutil
 import threading
 import urllib.request
-from typing import Any, Dict, Optional
+from typing import Any
+from typing import Dict
+from typing import Optional
 
 import _ba
 import ba
@@ -14,7 +16,8 @@ from ba import _activitytypes as ba_actypes
 from ba._activity import Activity
 from ba._activitytypes import *
 from ba._lobby import JoinInfo
-from ba._music import MusicType, setmusic
+from ba._music import MusicType
+from ba._music import setmusic
 from ba._player import EmptyPlayer  # pylint: disable=W0611
 from ba._team import EmptyTeam  # pylint: disable=W0611
 

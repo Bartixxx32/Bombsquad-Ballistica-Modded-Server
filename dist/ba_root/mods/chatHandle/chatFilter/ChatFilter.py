@@ -6,7 +6,9 @@ import _ba
 import ba
 import setting
 from serverData import serverdata
-from tools import Logger, profanity, servercheck
+from tools import Logger
+from tools import profanity
+from tools import servercheck
 
 settings = setting.get_settings_data()
 

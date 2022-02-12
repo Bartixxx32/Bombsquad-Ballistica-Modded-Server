@@ -3,9 +3,7 @@
     This is an early version of the plugin. Feedback appreciated!
 
 """
-
 # ba_meta require api 6
-
 from __future__ import annotations
 
 import math

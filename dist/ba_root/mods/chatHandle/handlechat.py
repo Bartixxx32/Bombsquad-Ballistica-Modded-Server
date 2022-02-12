@@ -1,5 +1,4 @@
 # Released under the MIT License. See LICENSE for details.
-
 import _ba
 import ba
 import setting
@@ -7,7 +6,8 @@ from chatHandle.ChatCommands import Main
 from chatHandle.chatFilter import ChatFilter
 from playersData import pdata
 from serverData import serverdata
-from tools import Logger, servercheck
+from tools import Logger
+from tools import servercheck
 
 settings = setting.get_settings_data()
 

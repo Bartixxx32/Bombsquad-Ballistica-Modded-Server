@@ -1,5 +1,4 @@
 # ba_meta require api 6
-
 """
 Character Chooser by Mr.Smoothy
 
@@ -28,17 +27,19 @@ Share this plugin with your server owner /admins  to use it online
  :)
 
 """
-
-
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
 import _ba
 import ba
-from ba._error import NotFoundError, print_error, print_exception
-from ba._gameutils import animate, animate_array
-from ba._generated.enums import InputType, SpecialChar
+from ba._error import NotFoundError
+from ba._error import print_error
+from ba._error import print_exception
+from ba._gameutils import animate
+from ba._gameutils import animate_array
+from ba._generated.enums import InputType
+from ba._generated.enums import SpecialChar
 from ba._language import Lstr
 from ba._profile import get_player_profile_colors
 from bastd.actor.playerspaz import PlayerSpaz

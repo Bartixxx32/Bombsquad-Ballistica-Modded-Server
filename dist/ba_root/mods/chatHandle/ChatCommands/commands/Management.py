@@ -5,11 +5,13 @@ import _ba
 import ba
 import setting
 from playersData import pdata
-# from tools.whitelist import add_to_white_list, add_commit_to_logs
 from serverData import serverdata
 from tools import playlist
 
-from .Handlers import handlemsg, handlemsg_all, send
+from .Handlers import handlemsg
+from .Handlers import handlemsg_all
+from .Handlers import send
+# from tools.whitelist import add_to_white_list, add_commit_to_logs
 
 Commands = [
     "maxplayers",

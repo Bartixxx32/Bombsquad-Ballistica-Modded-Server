@@ -1,6 +1,4 @@
 # ba_meta require api 6
-
-
 from __future__ import annotations
 
 from typing import TYPE_CHECKING

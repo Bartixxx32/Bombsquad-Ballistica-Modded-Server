@@ -1,14 +1,16 @@
 # Released under the MIT License. See LICENSE for details.
-
-
 import _ba
 import ba
 import setting
 from chatHandle.chatFilter import ChatFilter
 from serverData import serverdata
 
-from .commands import Cheats, Fun, Management, NormalCommands
-from .Handlers import check_permissions, clientid_to_accountid
+from .commands import Cheats
+from .commands import Fun
+from .commands import Management
+from .commands import NormalCommands
+from .Handlers import check_permissions
+from .Handlers import clientid_to_accountid
 
 settings = setting.get_settings_data()
 
