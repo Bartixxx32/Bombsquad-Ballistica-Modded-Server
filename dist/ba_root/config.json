@@ -132,46 +132,16 @@
     "Buy Option": false,
     "Buy Percentage": false,
     "Promo Code": {
-      "B-0mB3RYT2z": [
-        true,
-        910
-      ],
-      "B-Asd14mON9G0D": [
-        true,
-        910
-      ],
-      "D-rAcK0cJ23": [
-        true,
-        910
-      ],
-      "E-Am54igO42Os": [
-        true,
-        600
-      ],
-      "E-M4uN3K34XB": [
-        true,
-        840
-      ],
-      "E-a27ZO6f3Y": [
-        true,
-        600
-      ],
-      "G-Am54igO42Os": [
-        true,
-        1100
-      ],
-      "P-tRo8nM8dZ": [
-        true,
-        2800
-      ],
-      "PM-731ClcAF": [
-        true,
-        50000
-      ],
-      "Y-tU2B3S": [
-        true,
-        500
-      ]
+      "B-0mB3RYT2z": [true, 910],
+      "B-Asd14mON9G0D": [true, 910],
+      "D-rAcK0cJ23": [true, 910],
+      "E-Am54igO42Os": [true, 600],
+      "E-M4uN3K34XB": [true, 840],
+      "E-a27ZO6f3Y": [true, 600],
+      "G-Am54igO42Os": [true, 1100],
+      "P-tRo8nM8dZ": [true, 2800],
+      "PM-731ClcAF": [true, 50000],
+      "Y-tU2B3S": [true, 500]
     }
   },
   "Campaigns": {
@@ -327,21 +297,10 @@
     }
   },
   "Custom Team Colors": [
-    [
-      2,
-      0.25,
-      1
-    ],
-    [
-      1,
-      0.25,
-      0.2
-    ]
+    [2, 0.25, 1],
+    [1, 0.25, 0.2]
   ],
-  "Custom Team Names": [
-    "ladoo",
-    "barfi"
-  ],
+  "Custom Team Names": ["ladoo", "barfi"],
   "Default Player Profiles": {
     "Client Input Device #1": "_random",
     "Client Input Device #2": "__account__"
@@ -419,16 +378,8 @@
   "Player Profiles": {
     "__account__": {
       "character": "Spaz",
-      "color": [
-        0.5,
-        0.25,
-        1
-      ],
-      "highlight": [
-        0.5,
-        0.25,
-        1
-      ]
+      "color": [0.5, 0.25, 1],
+      "highlight": [0.5, 0.25, 1]
     }
   },
   "Plugins": {
