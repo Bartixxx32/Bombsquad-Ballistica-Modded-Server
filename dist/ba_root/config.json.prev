@@ -1,166 +1,110 @@
 {
  "Achievements": {
-  "Boom Goes the Dynamite": {
-   "Complete": false
-  },
-  "Boxer": {
-   "Complete": false
-  },
-  "Dual Wielding": {
-   "Complete": false
-  },
-  "Flawless Victory": {
-   "Complete": false
-  },
   "Free Loader": {
-   "Complete": false
-  },
-  "Gold Miner": {
-   "Complete": false
-  },
-  "Got the Moves": {
-   "Complete": false
-  },
-  "In Control": {
-   "Complete": false
-  },
-  "Last Stand God": {
-   "Complete": false
-  },
-  "Last Stand Master": {
-   "Complete": false
-  },
-  "Last Stand Wizard": {
-   "Complete": false
-  },
-  "Mine Games": {
-   "Complete": false
-  },
-  "Off You Go Then": {
-   "Complete": false
-  },
-  "Onslaught God": {
-   "Complete": false
-  },
-  "Onslaught Master": {
-   "Complete": false
-  },
-  "Onslaught Training Victory": {
-   "Complete": false
-  },
-  "Onslaught Wizard": {
-   "Complete": false
-  },
-  "Precision Bombing": {
-   "Complete": false
-  },
-  "Pro Boxer": {
-   "Complete": false
-  },
-  "Pro Football Shutout": {
-   "Complete": false
-  },
-  "Pro Football Victory": {
-   "Complete": false
-  },
-  "Pro Onslaught Victory": {
-   "Complete": false
-  },
-  "Pro Runaround Victory": {
-   "Complete": false
-  },
-  "Rookie Football Shutout": {
-   "Complete": false
-  },
-  "Rookie Football Victory": {
-   "Complete": false
-  },
-  "Rookie Onslaught Victory": {
-   "Complete": false
-  },
-  "Runaround God": {
-   "Complete": false
-  },
-  "Runaround Master": {
-   "Complete": false
-  },
-  "Runaround Wizard": {
-   "Complete": false
-  },
-  "Sharing is Caring": {
-   "Complete": false
-  },
-  "Stayin' Alive": {
-   "Complete": false
-  },
-  "Super Mega Punch": {
-   "Complete": false
-  },
-  "Super Punch": {
-   "Complete": false
-  },
-  "TNT Terror": {
-   "Complete": false
-  },
-  "Team Player": {
    "Complete": true
-  },
-  "The Great Wall": {
-   "Complete": false
-  },
-  "The Wall": {
-   "Complete": false
-  },
-  "Uber Football Shutout": {
-   "Complete": false
-  },
-  "Uber Football Victory": {
-   "Complete": false
-  },
-  "Uber Onslaught Victory": {
-   "Complete": false
-  },
-  "Uber Runaround Victory": {
-   "Complete": false
   }
  },
  "Auto Account State": "Server",
  "Auto Balance Teams": true,
- "Campaigns": {},
- "Custom Team Colors": [
-  [
-   2.0,
-   0.25,
-   1.0
-  ],
-  [
-   1.0,
-   0.25,
-   0.2
-  ]
- ],
- "Custom Team Names": [
-  "ladoo",
-  "barfi"
- ],
- "Default Player Profiles": {
-  "Client Input Device #1": "__account__",
-  "Client Input Device #10": "__account__",
-  "Client Input Device #2": "__account__",
-  "Client Input Device #3": "Goku",
-  "Client Input Device #4": "\ud83d\udc30cute bunny\ud83d\udc9e",
-  "Client Input Device #5": "__account__",
-  "Client Input Device #6": "__account__",
-  "Client Input Device #8": "AARAV SINGH",
-  "Client Input Device #9": "__account__"
+ "Bear Coin": 814,
+ "Bear Store": {
+  "Buy Firebombs": false,
+  "Buy Option": false,
+  "Buy Percentage": false,
+  "Promo Code": {
+   "B-0mB3RYT2z": [
+    true,
+    910
+   ],
+   "B-Asd14mON9G0D": [
+    true,
+    910
+   ],
+   "D-rAcK0cJ23": [
+    true,
+    910
+   ],
+   "E-Am54igO42Os": [
+    true,
+    600
+   ],
+   "E-M4uN3K34XB": [
+    true,
+    840
+   ],
+   "E-a27ZO6f3Y": [
+    true,
+    600
+   ],
+   "G-Am54igO42Os": [
+    true,
+    1100
+   ],
+   "P-tRo8nM8dZ": [
+    true,
+    2800
+   ],
+   "PM-731ClcAF": [
+    true,
+    50000
+   ],
+   "Y-tU2B3S": [
+    true,
+    500
+   ]
+  }
  },
- "Free-for-All Max Players": 20,
+ "Campaigns": {},
+ "Default Player Profiles": {
+  "Client Input Device #1": "long 12345",
+  "Client Input Device #10": "_random",
+  "Client Input Device #11": "powx",
+  "Client Input Device #12": "__account__",
+  "Client Input Device #13": "musculor",
+  "Client Input Device #2": "__account__",
+  "Client Input Device #3": "Great noob",
+  "Client Input Device #4": "__account__",
+  "Client Input Device #5": "\ud83d\udc7b\u0646\u0640\u0648\u0627\u0641",
+  "Client Input Device #6": "FUCK U",
+  "Client Input Device #7": "mio padre",
+  "Client Input Device #8": "_random",
+  "Client Input Device #9": "\"J\\A\u00faM"
+ },
+ "Free-for-All Max Players": 25,
  "Free-for-All Playlist Randomize": true,
  "Free-for-All Playlist Selection": "__default__",
  "Free-for-All Playlists": {},
  "Idle Exit Minutes": null,
- "Local Account Name": "Server3258837",
- "PSTR": 0,
+ "Local Account Name": "Server4055794",
+ "PPM Settings": {
+  "Healing Damage PTG": 72,
+  "Powers Gravity": true,
+  "Powerup Name": true,
+  "Powerup Scale": 1.0,
+  "Powerup Style": "Auto",
+  "Powerup Time": false,
+  "Powerup With Shield": true,
+  "Powerups": {
+   "Curse": 1,
+   "Fire Bombs": 3,
+   "Fly Bombs": 3,
+   "Goodbye": 2,
+   "Healing Damage": 1,
+   "Health": 1,
+   "Ice Bombs": 3,
+   "Ice Man": 1,
+   "Impact Bombs": 3,
+   "Impairment Bombs": 2,
+   "Mine Bombs": 2,
+   "Punch": 3,
+   "Shield": 2,
+   "Speed": 2,
+   "Sticky Bombs": 3,
+   "Tank Shield": 1,
+   "Triple": 3
+  },
+  "Tank Shield PTG": 96
+ },
  "Player Profiles": {
   "__account__": {
    "character": "Spaz",
@@ -177,11 +121,11 @@
   }
  },
  "Plugins": {
-  "bobmsquadhttpapi.HeySmoothy": {
+  "CharacterChooser.HeySmoothy": {
    "enabled": true
   },
-  "characters_duplicate.unlock_characters": {
-   "enabled": true
+  "bobmsquadhttpapi.HeySmoothy": {
+   "enabled": false
   },
   "importcustomcharacters.HeySmoothy": {
    "enabled": true
@@ -189,272 +133,35 @@
  },
  "Port": 43210,
  "Region Pings": {
-  "af-south-1": 310.3448000001663,
-  "ap-northeast-1": 166.10779999973602,
-  "ap-northeast-2": 151.27690000008442,
-  "ap-south-1": 42.999430000327266,
-  "ap-southeast-1": 85.54219160010689,
-  "ap-southeast-2": 179.14919999930135,
-  "ca-central-1": 234.70910000105505,
-  "eu-central-1": 161.19810000054713,
-  "eu-north-1": 181.7263000011735,
-  "eu-south-1": 147.98619999965013,
-  "eu-west-1": 170.556499999293,
-  "eu-west-2": 166.20810000131314,
-  "eu-west-3": 168.4557999997196,
-  "me-south-1": 74.75811940041604,
-  "sa-east-1": 347.53679999994347,
-  "us-east-1": 226.50029999931576,
-  "us-east-2": 251.41959999928076,
-  "us-west-1": 267.6188999994338,
-  "us-west-2": 277.7994000007311
+  "af-south-1": 159.54401100240648,
+  "ap-northeast-1": 246.73272964544594,
+  "ap-northeast-2": 273.5074502453208,
+  "ap-south-1": 130.36168904602528,
+  "ap-southeast-1": 158.8356446409598,
+  "ap-southeast-2": 292.165868637152,
+  "ca-central-1": 99.32541032228619,
+  "eu-central-1": 1.915118214915144,
+  "eu-north-1": 21.357157653986075,
+  "eu-south-1": 11.333788203801578,
+  "eu-west-1": 32.20821260151152,
+  "eu-west-2": 16.380481571577484,
+  "eu-west-3": 9.694405743295233,
+  "me-south-1": 83.47979209572077,
+  "sa-east-1": 200.52757458854467,
+  "us-east-1": 99.4249370759353,
+  "us-east-2": 113.60065077245235,
+  "us-west-1": 164.31464179046452,
+  "us-west-2": 174.83420023787767
  },
+ "Selected Coop Game": "Easy:Rookie Onslaught",
  "Show Tutorial": false,
  "Signed In Last Session": false,
- "Team Game Max Players": 20,
+ "Team Game Max Player": 25,
+ "Team Game Max Players": 25,
  "Team Tournament Playlist Randomize": true,
- "Team Tournament Playlist Selection": "\u041a\u043e\u043f\u0438\u044f \u0421\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u044b\u0439 \u043f\u043b\u0435\u0439-\u043b\u0438\u0441\u0442 \u0440\u0435\u0436\u0438\u043c\u0430 \u041a\u043e\u043c\u0430\u043d\u0434\u044b",
- "Team Tournament Playlists": {
-  "\u041a\u043e\u043f\u0438\u044f \u0421\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u044b\u0439 \u043f\u043b\u0435\u0439-\u043b\u0438\u0441\u0442 \u0440\u0435\u0436\u0438\u043c\u0430 \u041a\u043e\u043c\u0430\u043d\u0434\u044b": [
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Flag Idle Return Time": 30,
-     "Flag Touch Return Time": 0,
-     "Respawn Times": 1.0,
-     "Score to Win": 3,
-     "Time Limit": 600,
-     "map": "Bridgit"
-    },
-    "type": "bsCaptureTheFlag.CTFGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Respawn Times": 1.0,
-     "Score to Win": 3,
-     "Time Limit": 600,
-     "map": "Step Right Up"
-    },
-    "type": "bsAssault.AssaultGame"
-   },
-   {
-    "settings": {
-     "Balance Total Lives": false,
-     "Epic Mode": false,
-     "Lives Per Player": 3,
-     "Respawn Times": 1.0,
-     "Solo Mode": true,
-     "Time Limit": 600,
-     "map": "Rampage"
-    },
-    "type": "bsElimination.EliminationGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Kills to Win Per Player": 5,
-     "Respawn Times": 1.0,
-     "Time Limit": 300,
-     "map": "Roundabout"
-    },
-    "type": "bsDeathMatch.DeathMatchGame"
-   },
-   {
-    "settings": {
-     "Respawn Times": 1.0,
-     "Score to Win": 1,
-     "Time Limit": 600,
-     "map": "Hockey Stadium"
-    },
-    "type": "bsHockey.HockeyGame"
-   },
-   {
-    "settings": {
-     "Hold Time": 30,
-     "Respawn Times": 1.0,
-     "Time Limit": 300,
-     "map": "Monkey Face"
-    },
-    "type": "bsKeepAway.KeepAwayGame"
-   },
-   {
-    "settings": {
-     "Balance Total Lives": false,
-     "Epic Mode": true,
-     "Lives Per Player": 1,
-     "Respawn Times": 1.0,
-     "Solo Mode": false,
-     "Time Limit": 120,
-     "map": "Tip Top"
-    },
-    "type": "bsElimination.EliminationGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Respawn Times": 1.0,
-     "Score to Win": 3,
-     "Time Limit": 300,
-     "map": "Crag Castle"
-    },
-    "type": "bsAssault.AssaultGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Kills to Win Per Player": 5,
-     "Respawn Times": 1.0,
-     "Time Limit": 300,
-     "map": "Doom Shroom"
-    },
-    "type": "bsDeathMatch.DeathMatchGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "map": "Rampage"
-    },
-    "type": "bsMeteorShower.MeteorShowerGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Flag Idle Return Time": 30,
-     "Flag Touch Return Time": 0,
-     "Respawn Times": 1.0,
-     "Score to Win": 2,
-     "Time Limit": 600,
-     "map": "Roundabout"
-    },
-    "type": "bsCaptureTheFlag.CTFGame"
-   },
-   {
-    "settings": {
-     "Respawn Times": 1.0,
-     "Score to Win": 21,
-     "Time Limit": 600,
-     "map": "Football Stadium"
-    },
-    "type": "bsFootball.FootballTeamGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": true,
-     "Respawn Times": 0.25,
-     "Score to Win": 3,
-     "Time Limit": 120,
-     "map": "Bridgit"
-    },
-    "type": "bsAssault.AssaultGame"
-   },
-   {
-    "map": "Doom Shroom",
-    "settings": {
-     "Enable Impact Bombs": 1,
-     "Enable Triple Bombs": false,
-     "Target Count": 2,
-     "map": "Doom Shroom"
-    },
-    "type": "bsTargetPractice.TargetPracticeGame"
-   },
-   {
-    "settings": {
-     "Hold Time": 30,
-     "Respawn Times": 1.0,
-     "Time Limit": 300,
-     "map": "Tip Top"
-    },
-    "type": "bsKingOfTheHill.KingOfTheHillGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Respawn Times": 1.0,
-     "Score to Win": 2,
-     "Time Limit": 300,
-     "map": "Zigzag"
-    },
-    "type": "bsAssault.AssaultGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Flag Idle Return Time": 30,
-     "Flag Touch Return Time": 0,
-     "Respawn Times": 1.0,
-     "Score to Win": 3,
-     "Time Limit": 300,
-     "map": "Happy Thoughts"
-    },
-    "type": "bsCaptureTheFlag.CTFGame"
-   },
-   {
-    "settings": {
-     "Bomb Spawning": 1000,
-     "Epic Mode": true,
-     "Laps": 1,
-     "Mine Spawning": 2000,
-     "Time Limit": 300,
-     "map": "Big G"
-    },
-    "type": "bsRace.RaceGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Kills to Win Per Player": 5,
-     "Respawn Times": 1.0,
-     "Time Limit": 300,
-     "map": "Monkey Face"
-    },
-    "type": "bsDeathMatch.DeathMatchGame"
-   },
-   {
-    "settings": {
-     "Hold Time": 30,
-     "Respawn Times": 1.0,
-     "Time Limit": 300,
-     "map": "Lake Frigid"
-    },
-    "type": "bsKeepAway.KeepAwayGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": false,
-     "Flag Idle Return Time": 30,
-     "Flag Touch Return Time": 3,
-     "Respawn Times": 1.0,
-     "Score to Win": 2,
-     "Time Limit": 300,
-     "map": "Tip Top"
-    },
-    "type": "bsCaptureTheFlag.CTFGame"
-   },
-   {
-    "settings": {
-     "Balance Total Lives": false,
-     "Epic Mode": false,
-     "Lives Per Player": 3,
-     "Respawn Times": 1.0,
-     "Solo Mode": false,
-     "Time Limit": 300,
-     "map": "Crag Castle"
-    },
-    "type": "bsElimination.EliminationGame"
-   },
-   {
-    "settings": {
-     "Epic Mode": true,
-     "Respawn Times": 0.25,
-     "Time Limit": 120,
-     "map": "Zigzag"
-    },
-    "type": "bsConquest.ConquestGame"
-   }
-  ]
- },
- "launchCount": 252,
+ "Team Tournament Playlist Selection": "My Teams Playlist",
+ "Team Tournament Playlists": {},
+ "launchCount": 294,
  "lc14173": 1,
  "lc14292": 1
 }

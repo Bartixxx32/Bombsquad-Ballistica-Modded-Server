@@ -61,7 +61,7 @@
     },
     "discordbot":{
         "enable":false,
-        "token":"OTI2MjQ4NjU4Mjc2NTk3ODIw.Yc46SQ._i-JZoFk47n4Y79KETBf_1bU3g4",
+        "token":"OTI2MjQ4NjU4Mjc2NTk3ODIw.Yc46SQ.1vji-PnHBP5Ann6z8VwhRJgXsG4",
         "liveChat":true,
         "liveStatsChannelID":926248880998330479,
         "logsChannelID":926248899021266984
@@ -69,7 +69,7 @@
     "sameCharacterForTeam":false,
     "newResultBoard":true,
     "HostDeviceName":"v1.3.2",
-    "HostName":"BCS",
+    "HostName":"Bartixxx Server",
     "ShowKickVoteStarterName":true,
     "KickVoteMsgType":"chat",
     "minAgeToChatInHours":78,
